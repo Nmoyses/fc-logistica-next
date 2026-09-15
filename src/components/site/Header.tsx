@@ -24,16 +24,16 @@ export function Header() {
       )}
     >
       <div className="container-fc flex h-20 items-center justify-between gap-6">
-        <a href="#inicio" className="flex items-baseline gap-2" aria-label="FC Logística — início">
+        <a
+          href="#inicio"
+          className={cn(
+            "flex items-baseline gap-2 transition-colors",
+            scrolled || open ? "text-foreground" : "text-ink-foreground",
+          )}
+          aria-label="FC Logística — início"
+        >
           <span className="font-display text-xl font-bold tracking-tight">FC</span>
-          <span
-            className={cn(
-              "font-display text-xl font-light tracking-tight transition-colors",
-              scrolled ? "text-foreground" : "text-foreground",
-            )}
-          >
-            Logística
-          </span>
+          <span className="font-display text-xl font-light tracking-tight">Logística</span>
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Navegação principal">
@@ -41,7 +41,12 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className={cn(
+                "text-sm font-medium transition-colors",
+                scrolled
+                  ? "text-muted-foreground hover:text-foreground"
+                  : "text-ink-muted hover:text-ink-foreground",
+              )}
             >
               {item.label}
             </a>
@@ -58,7 +63,12 @@ export function Header() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-foreground lg:hidden"
+            className={cn(
+              "inline-flex h-10 w-10 items-center justify-center rounded-md border transition-colors lg:hidden",
+              scrolled || open
+                ? "border-border text-foreground"
+                : "border-ink-border text-ink-foreground",
+            )}
             aria-label={open ? "Fechar menu" : "Abrir menu"}
             aria-expanded={open}
           >
