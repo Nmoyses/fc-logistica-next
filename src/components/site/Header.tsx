@@ -63,7 +63,12 @@ export function Header() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-foreground lg:hidden"
+            className={cn(
+              "inline-flex h-10 w-10 items-center justify-center rounded-md border transition-colors lg:hidden",
+              scrolled || open
+                ? "border-border text-foreground"
+                : "border-ink-border text-ink-foreground",
+            )}
             aria-label={open ? "Fechar menu" : "Abrir menu"}
             aria-expanded={open}
           >
