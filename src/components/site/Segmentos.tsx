@@ -24,7 +24,7 @@ export function Segmentos() {
 
       <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {segmentos.map((seg, i) => {
-          const Icon = icones[i % icones.length];
+          const Icon = icones[i % icones.length] ?? ShieldCheck;
           return (
             <article key={seg.titulo} className="card-fc p-7">
               <Icon className="h-6 w-6 text-accent" aria-hidden="true" />
