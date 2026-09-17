@@ -93,6 +93,26 @@ export const solucoes = [
   },
 ];
 
+export const capacidadesTecnologicas = [
+  { titulo: "Integração", texto: "Webservices e conexão com sistemas corporativos." },
+  { titulo: "EDI", texto: "Troca estruturada de informações com transportadoras." },
+  { titulo: "TMS / WMS", texto: "Apoio aos fluxos de transporte e armazenagem." },
+  { titulo: "KPIs", texto: "Indicadores econômicos e de nível de serviço." },
+  { titulo: "Rastreamento", texto: "Acompanhamento das etapas da entrega." },
+  { titulo: "Controle de fretes", texto: "Conferência, pré-fatura e auditoria." },
+];
+
+export const fluxoDecisao = ["Dados", "Análise", "Gestão", "Indicadores", "Decisão", "Melhoria"];
+
+export const marcasHistoricas = [
+  "Motorola Solutions",
+  "Dana Cosméticos",
+  "Suez Water Technologies & Solutions",
+  "Zebra Technologies",
+  "Claro",
+  "Axis Communications",
+];
+
 export const metodologia = [
   {
     numero: "01",
@@ -168,20 +188,20 @@ export const diferenciais = [
       "Busca permanente por soluções de transporte e armazenagem capazes de otimizar o capital logístico.",
   },
   {
-    titulo: "Gestão de fornecedores",
-    texto: "Desenvolvimento, negociação e controle da cadeia de parceiros e transportadoras.",
+    titulo: "Controle da operação",
+    texto: "Gestão integrada para acompanhar fornecedores, processos e resultados.",
   },
   {
     titulo: "KPIs e performance",
     texto: "Gestão baseada em indicadores customizados e em níveis de serviço acordados.",
   },
   {
-    titulo: "Visibilidade operacional",
-    texto: "Tecnologia e relatórios que dão controle e acompanhamento real da operação.",
+    titulo: "Visibilidade",
+    texto: "Informações estruturadas para facilitar decisões e antecipar problemas.",
   },
   {
-    titulo: "Planejamento logístico",
-    texto: "Decisões orientadas por dados, cenários e pelas necessidades da operação.",
+    titulo: "Tecnologia",
+    texto: "Integração de informações, processos e sistemas para aumentar controle e agilidade.",
   },
   {
     titulo: "Melhoria contínua",
