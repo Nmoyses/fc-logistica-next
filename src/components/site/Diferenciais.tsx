@@ -1,56 +1,27 @@
 import { Section, SectionHeading } from "./Section";
-import { diferenciais, resultados } from "@/data/site";
-import networkImg from "@/assets/network-abstract.jpg";
+import { BarChart3, Cpu, Eye, Gauge, RefreshCw, WalletCards } from "lucide-react";
+import { diferenciais } from "@/data/site";
+
+const icons = [WalletCards, Gauge, BarChart3, Eye, Cpu, RefreshCw];
 
 export function Diferenciais() {
   return (
-    <>
       <Section id="diferenciais">
         <SectionHeading
-          eyebrow="Diferenciais"
-          title="Por que empresas confiam a gestão logística à FC"
+          eyebrow="Por que a FC?"
+          title="Controle para transformar operação em performance"
+          description="Gestão, tecnologia e melhoria contínua reunidas em uma única visão da cadeia."
         />
-        <div className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {diferenciais.map((d, i) => (
-            <article key={d.titulo} className="border-t border-border pt-6">
-              <span className="font-display text-xs font-semibold tracking-widest text-accent">
-                {String(i + 1).padStart(2, "0")}
-              </span>
+            <article key={d.titulo} className={i === 1 || i === 4 ? "group rounded-lg bg-primary p-8 text-primary-foreground transition-transform hover:-translate-y-1" : "group rounded-lg border border-border bg-card p-8 transition-all hover:-translate-y-1 hover:border-accent/40"}>
+              {(() => { const Icon = icons[i] ?? Gauge; return <Icon className="h-6 w-6 text-accent" aria-hidden="true" />; })()}
+              <span className={i === 1 || i === 4 ? "mt-10 block text-xs font-semibold tracking-widest text-ink-muted" : "mt-10 block text-xs font-semibold tracking-widest text-muted-foreground"}>{String(i + 1).padStart(2, "0")}</span>
               <h3 className="mt-3 font-display text-lg font-semibold">{d.titulo}</h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">{d.texto}</p>
+              <p className={i === 1 || i === 4 ? "mt-2.5 text-sm leading-relaxed text-ink-muted" : "mt-2.5 text-sm leading-relaxed text-muted-foreground"}>{d.texto}</p>
             </article>
           ))}
         </div>
       </Section>
-
-      <section className="relative isolate overflow-hidden surface-ink py-20 lg:py-28">
-        <img
-          src={networkImg}
-          alt="Representação abstrata de uma malha logística integrada"
-          width={1400}
-          height={900}
-          loading="lazy"
-          className="absolute inset-0 -z-10 h-full w-full object-cover opacity-40"
-        />
-        <div className="container-fc">
-          <SectionHeading
-            tone="ink"
-            eyebrow="Foco em resultado"
-            title="O impacto de uma operação logística bem gerida"
-            description="Gestão logística não se mede apenas em frete. Ela aparece no controle da operação, na previsibilidade e na qualidade das decisões."
-          />
-          <div className="mt-14 grid gap-px overflow-hidden rounded-lg border border-ink-border bg-ink-border sm:grid-cols-2 lg:grid-cols-3">
-            {resultados.map((r) => (
-              <article key={r.titulo} className="bg-ink-soft/90 p-8 backdrop-blur-sm">
-                <h3 className="font-display text-base font-semibold uppercase tracking-wide text-ink-foreground">
-                  {r.titulo}
-                </h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-ink-muted">{r.texto}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-    </>
   );
 }

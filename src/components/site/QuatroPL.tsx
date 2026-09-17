@@ -24,12 +24,12 @@ export function QuatroPL() {
         tone="ink"
         eyebrow="Metodologia 4PL"
         title="O que é 4PL e por que isso muda a sua operação"
-        description="O 4PL (Fourth-Party Logistics) é a evolução da quarteirização dos serviços terceirizados (3PL). Nesse modelo, a indústria confere a um contratado a responsabilidade pela gestão global da sua supply chain — da participação nas reuniões de planejamento de produção e vendas (S&OP) até a entrega final ao consumidor. Em outras palavras: nós respondemos pelos indicadores de níveis de serviço acordados em contrato."
+         description="No modelo 4PL, a FC coordena a cadeia de ponta a ponta: participa do planejamento, organiza fornecedores, acompanha a execução e responde pelos indicadores acordados."
       />
 
       <div className="mt-16 grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
         <div>
-          <h3 className="font-display text-sm font-semibold uppercase tracking-widest text-ink-muted">
+           <h3 className="font-display text-sm font-semibold uppercase tracking-widest text-ink-muted">
             Gestão integrada da cadeia
           </h3>
           <ol className="mt-8 relative border-l border-ink-border pl-8">
@@ -54,8 +54,8 @@ export function QuatroPL() {
           <h3 className="font-display text-sm font-semibold uppercase tracking-widest text-ink-muted">
             O que a gestão 4PL entrega
           </h3>
-          <ul className="mt-8 grid gap-3">
-            {entregas.map((item) => (
+           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+             {entregas.slice(0, 8).map((item) => (
               <li key={item} className="flex gap-3 text-sm leading-relaxed text-ink-muted">
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
                 <span>{item}</span>

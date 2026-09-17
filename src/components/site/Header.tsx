@@ -20,7 +20,7 @@ export function Header() {
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
           ? "border-b border-border bg-background/90 backdrop-blur-md"
-          : "border-b border-transparent",
+          : "border-b border-ink-border/50 bg-primary/45 backdrop-blur-sm",
       )}
     >
       <div className="container-fc flex h-20 items-center justify-between gap-6">
@@ -32,8 +32,8 @@ export function Header() {
           )}
           aria-label="FC Logística — início"
         >
-          <span className="font-display text-xl font-bold tracking-tight">FC</span>
-          <span className="font-display text-xl font-light tracking-tight">Logística</span>
+          <span className="flex h-9 w-9 items-center justify-center rounded-md bg-primary font-display text-sm font-bold text-primary-foreground ring-1 ring-ink-border">FC</span>
+          <span className="font-display text-lg font-semibold">Logística</span>
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Navegação principal">
@@ -56,7 +56,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <a
             href="#contato"
-            className="hidden rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition-all hover:brightness-110 md:inline-flex"
+             className="hidden rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition-all hover:-translate-y-0.5 hover:brightness-105 md:inline-flex"
           >
             Fale com um especialista
           </a>
