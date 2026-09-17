@@ -5,16 +5,18 @@ import { QuemSomos } from "@/components/site/QuemSomos";
 import { QuatroPL } from "@/components/site/QuatroPL";
 import { Solucoes } from "@/components/site/Solucoes";
 import { Metodologia } from "@/components/site/Metodologia";
+import { Tecnologia } from "@/components/site/Tecnologia";
 import { Segmentos } from "@/components/site/Segmentos";
 import { Diferenciais } from "@/components/site/Diferenciais";
 import { CtaComercial } from "@/components/site/CtaComercial";
 import { Contato } from "@/components/site/Contato";
 import { Footer } from "@/components/site/Footer";
+import { Experiencia } from "@/components/site/Experiencia";
 import { contato } from "@/data/site";
 
-const title = "FC Logística — Gestão Logística e Consultoria 4PL";
+const title = "FC Logística — Gestão Logística 4PL e Tecnologia";
 const description =
-  "Empresa 4PL de gerenciamento logístico desde 2006. Gestão de transportes, supply chain, fornecedores, KPIs e redução de custos logísticos em todo o Brasil.";
+  "Gestão logística 4PL desde 2006: transportes, fornecedores, controle de fretes, KPIs, tecnologia e supply chain em todo o Brasil.";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -64,8 +66,10 @@ function Index() {
         <QuatroPL />
         <Solucoes />
         <Metodologia />
+        <Tecnologia />
         <Segmentos />
         <Diferenciais />
+        <Experiencia />
         <CtaComercial />
         <Contato />
       </main>
