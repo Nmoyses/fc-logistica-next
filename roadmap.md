@@ -1,9 +1,11 @@
-# Refinamento estratégico FC Logística
+# Evolução institucional — FC Supply Tech Solutions
 
-- [x] Aplicar identidade azul e branca, Sora + Manrope e microinterações discretas
-- [x] Fortalecer Hero, Quem Somos, linha do tempo e narrativa 4PL
-- [x] Reorganizar soluções e atuação com foco em problema e resultado
-- [x] Criar Gestão + Tecnologia, Central de Fretes e fluxo da operação à decisão
-- [x] Unificar impacto e diferenciais em “Por que a FC?”
-- [x] Criar experiência com marcas confirmadas no PDF histórico
-- [x] Revisar SEO, desktop, mobile e diagnósticos
+- [x] Ler integralmente o documento institucional e adotar seu conteúdo como referência oficial
+- [x] Integrar a logo oficial sem redesenho e atualizar favicon
+- [x] Atualizar marca, razão social, hero, navegação, rodapé e metadados
+- [x] Implementar transição FC Logística → FC Supply Tech Solutions e timeline
+- [x] Implementar fundador, papel na cadeia, Gestão 4PL e soluções
+- [x] Implementar Integra Cargo, Integra Carbon e arquitetura do ecossistema sem inventar URLs
+- [x] Atualizar diferenciais, experiência, atuação nacional e contato B2B
+- [ ] Validar compilação, interações, desktop, tablet e celular
+- [ ] Revisar consistência visual final e acessibilidade

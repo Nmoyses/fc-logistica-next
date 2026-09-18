@@ -78,14 +78,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "FC Logística — Gestão Logística e Consultoria 4PL" },
+      { title: "FC Supply Tech Solutions — Gestão 4PL e Supply Chain" },
       {
         name: "description",
         content:
-          "Empresa 4PL de gerenciamento logístico: gestão de transportes, supply chain, fornecedores e redução de custos logísticos.",
+          "Gestão 4PL, Supply Chain, tecnologia e inteligência de dados desde 2006.",
       },
-      { name: "author", content: "FC Logística" },
-      { property: "og:site_name", content: "FC Logística" },
+      { name: "author", content: "FC Supply Tech Solutions" },
+      { property: "og:site_name", content: "FC Supply Tech Solutions" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -101,7 +101,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
   shellComponent: RootShell,
