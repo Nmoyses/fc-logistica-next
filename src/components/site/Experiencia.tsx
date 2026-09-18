@@ -1,30 +1,14 @@
-import { marcasHistoricas } from "@/data/site";
+import motorola from "@/assets/brands/motorola-solutions.jpg";
+import zebra from "@/assets/brands/zebra-technologies.jpg";
+import claro from "@/assets/brands/claro.jpg";
+import axis from "@/assets/brands/axis-communications.jpg";
+import dana from "@/assets/brands/dana-cosmeticos.jpg";
+import suez from "@/assets/brands/suez.jpg";
+import { SectionHeading } from "./Section";
 
+const brands = [{ name: "Motorola Solutions", src: motorola }, { name: "Zebra Technologies", src: zebra }, { name: "Claro", src: claro }, { name: "Axis Communications", src: axis }, { name: "Dana Cosméticos", src: dana }, { name: "Suez Water Technologies & Solutions", src: suez }];
 export function Experiencia() {
   return (
-    <section id="experiencia" className="bg-primary py-20 text-primary-foreground lg:py-24">
-      <div className="container-fc">
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-          <div>
-            <span className="eyebrow">Experiência</span>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl">Experiência em operações de alta exigência</h2>
-          </div>
-          <p className="max-w-xl text-base leading-relaxed text-ink-muted">
-            Conhecimento construído ao longo de anos em operações que exigem controle, integração e precisão.
-          </p>
-        </div>
-
-        <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-ink-border bg-ink-border sm:grid-cols-2 lg:grid-cols-3">
-          {marcasHistoricas.map((marca) => (
-            <div key={marca} className="flex min-h-28 items-center justify-center bg-ink-soft px-6 text-center">
-              <span className="font-display text-base font-semibold text-ink-foreground/80">{marca}</span>
-            </div>
-          ))}
-        </div>
-        <p className="mt-5 text-xs leading-relaxed text-ink-muted">
-          Marcas apresentadas na documentação institucional de 2018 como parte da trajetória da FC. A exibição não indica vínculo comercial atual.
-        </p>
-      </div>
-    </section>
+    <section id="experiencia" className="bg-background py-20 lg:py-24"><div className="container-fc"><SectionHeading eyebrow="Nossa experiência" title="Experiência construída ao longo da nossa trajetória" description="Ao longo de sua história, a FC participou de projetos e operações para empresas nacionais e multinacionais." /><div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">{brands.map((brand) => <div key={brand.name} className="flex min-h-36 items-center justify-center bg-card p-7"><img src={brand.src} alt={`Marca ${brand.name}`} loading="lazy" className="max-h-16 max-w-[190px] object-contain grayscale opacity-70 transition-all duration-300 hover:grayscale-0 hover:opacity-100" /></div>)}</div><p className="mt-5 text-xs leading-relaxed text-muted-foreground">Empresas atendidas ao longo da trajetória da FC. A apresentação das marcas não implica vínculo comercial atual.</p></div></section>
   );
 }
