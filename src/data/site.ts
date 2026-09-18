@@ -11,210 +11,62 @@ export const contato = {
 export const navItems = [
   { label: "Início", href: "#inicio" },
   { label: "Quem Somos", href: "#quem-somos" },
-  { label: "4PL", href: "#4pl" },
+  { label: "Gestão 4PL", href: "#gestao-4pl" },
   { label: "Soluções", href: "#solucoes" },
-  { label: "Segmentos", href: "#segmentos" },
-  { label: "Diferenciais", href: "#diferenciais" },
+  { label: "Tecnologia", href: "#tecnologia" },
+  { label: "Experiência", href: "#experiencia" },
   { label: "Contato", href: "#contato" },
 ];
 
 export const solucoes = [
-  {
-    titulo: "Gestão da cadeia de transportes",
-    descricao:
-      "Gerenciamento das operações inbound e outbound em todo o território brasileiro, com controle ponta a ponta dos fluxos.",
-    beneficio: "Operação sob uma única gestão, com responsabilidade clara.",
-  },
-  {
-    titulo: "Otimização da performance logística",
-    descricao:
-      "Consultoria dedicada à revisão de processos, rotas, modais e níveis de serviço da operação.",
-    beneficio: "Mais eficiência com a estrutura que a empresa já possui.",
-  },
-  {
-    titulo: "Desenvolvimento e gestão de fornecedores",
-    descricao:
-      "Prospecção, homologação e acompanhamento de transportadoras e LSPs, com avaliação contínua de desempenho.",
-    beneficio: "Base de parceiros confiável e cobrada por resultado.",
-  },
-  {
-    titulo: "Negociação de contratos e fretes",
-    descricao:
-      "Negociação com transportadoras e prestadores logísticos, análise de contratos, serviços e tabelas de frete.",
-    beneficio: "Condições comerciais mais competitivas e transparentes.",
-  },
-  {
-    titulo: "Planejamento e cost saving",
-    descricao:
-      "Planejamento e acompanhamento de iniciativas de redução de custos de transporte e distribuição.",
-    beneficio: "Economia acompanhada e comprovada ao longo do tempo.",
-  },
-  {
-    titulo: "Acompanhamento de PGR",
-    descricao:
-      "Monitoramento do Plano de Gerenciamento de Riscos e das condições de seguro aplicadas à operação.",
-    beneficio: "Menos exposição a risco em cargas sensíveis.",
-  },
-  {
-    titulo: "Controle financeiro por cliente",
-    descricao:
-      "Controle financeiro de todas as operações, com conferência, auditoria e controle de pagamento de fretes de terceiros.",
-    beneficio: "Cada real de custo logístico rastreado e justificado.",
-  },
-  {
-    titulo: "Gestão de KPIs e níveis de serviço",
-    descricao:
-      "Relatórios gerenciais com indicadores customizados para garantir a qualidade e a performance dos LSPs.",
-    beneficio: "Decisões baseadas em dados, não em percepção.",
-  },
-  {
-    titulo: "Gestão de armazéns e Centros de Distribuição",
-    descricao:
-      "Estruturação e gestão de armazéns e CDs, incluindo organização de processos e capacidade de atendimento.",
-    beneficio: "Armazenagem alinhada à demanda real da operação.",
-  },
-  {
-    titulo: "Implementação de TMS e WMS",
-    descricao:
-      "Implementação e melhoria de sistemas de gestão de transporte e armazenagem, com foco em visibilidade.",
-    beneficio: "Tecnologia aplicada à rotina da operação.",
-  },
-  {
-    titulo: "Otimização da malha de distribuição",
-    descricao:
-      "Definição da malha, consolidação de cargas próprias e de terceiros e provimento de estrutura para volumes e capacidades.",
-    beneficio: "Menos custo por entrega e melhor cobertura.",
-  },
-  {
-    titulo: "Simulação de cenários logísticos",
-    descricao:
-      "Simulação de cenários, provisão de despesas logísticas e avaliação de vantagens tributárias.",
-    beneficio: "Previsibilidade antes de decidir.",
-  },
+  { titulo: "Gestão 4PL", descricao: "Coordenação integrada do ecossistema logístico." },
+  { titulo: "Gestão de transportes", descricao: "Gestão de operações inbound e outbound." },
+  { titulo: "Gestão e desenvolvimento de fornecedores", descricao: "Prospecção, homologação, negociação e performance." },
+  { titulo: "Cost saving", descricao: "Projetos estruturados de redução de custos logísticos." },
+  { titulo: "Gestão de fretes", descricao: "Negociação, conferência, auditoria, pré-fatura e acompanhamento." },
+  { titulo: "KPIs e SLAs", descricao: "Indicadores customizados e gestão de nível de serviço." },
+  { titulo: "Gestão de armazéns e CDs", descricao: "Planejamento e acompanhamento operacional." },
+  { titulo: "Profissionais especializados", descricao: "Conhecimento técnico para logística, Supply Chain e operações." },
 ];
 
-export const capacidadesTecnologicas = [
-  { titulo: "Integração", texto: "Webservices e conexão com sistemas corporativos." },
-  { titulo: "EDI", texto: "Troca estruturada de informações com transportadoras." },
-  { titulo: "TMS / WMS", texto: "Apoio aos fluxos de transporte e armazenagem." },
-  { titulo: "KPIs", texto: "Indicadores econômicos e de nível de serviço." },
-  { titulo: "Rastreamento", texto: "Acompanhamento das etapas da entrega." },
-  { titulo: "Controle de fretes", texto: "Conferência, pré-fatura e auditoria." },
+export const timeline = [
+  { ano: "2006", titulo: "FC Logística", texto: "Início da trajetória e dos projetos de Gestão 4PL, com operação para a Nokia Siemens Networks." },
+  { ano: "2006–2025", titulo: "Consolidação 4PL", texto: "Ampliação da experiência em operações complexas, fornecedores, transportes, custos, indicadores e equipes especializadas." },
+  { ano: "2020", titulo: "Tecnologia", texto: "Expansão do ecossistema com a Integra Cargo, conectando gestão logística, software, integrações e inteligência de dados." },
+  { ano: "2026", titulo: "FC Supply Tech Solutions", texto: "Nova identidade para integrar Gestão 4PL, Supply Chain, tecnologia e sustentabilidade." },
 ];
 
-export const fluxoDecisao = ["Dados", "Análise", "Gestão", "Indicadores", "Decisão", "Melhoria"];
+export const fluxoCadeia = ["Cliente", "Planejamento", "Fornecedores", "Transporte", "Armazenagem", "Distribuição", "Indicadores"];
 
-export const marcasHistoricas = [
-  "Motorola Solutions",
-  "Dana Cosméticos",
-  "Suez Water Technologies & Solutions",
-  "Zebra Technologies",
-  "Claro",
-  "Axis Communications",
-];
+export const solucoesIntegra = ["TMS", "Gestão de pedidos", "Cotação", "Auditoria de fretes", "Rastreabilidade", "Gestão de pátio", "Aplicativo para motoristas", "Frota", "APIs", "Dashboards", "Inteligência Artificial", "Chatbot comercial"];
 
-export const metodologia = [
-  {
-    numero: "01",
-    titulo: "Diagnóstico",
-    texto: "Entendimento da operação atual, dos fornecedores, dos custos e das oportunidades.",
-  },
-  {
-    numero: "02",
-    titulo: "Planejamento",
-    texto: "Definição de estratégias, processos, contratos e indicadores de desempenho.",
-  },
-  {
-    numero: "03",
-    titulo: "Implementação",
-    texto: "Aplicação das melhorias, estruturação da operação e ativação de sistemas e rotinas.",
-  },
-  {
-    numero: "04",
-    titulo: "Gestão",
-    texto: "Acompanhamento contínuo da operação, dos fornecedores e dos níveis de serviço.",
-  },
-  {
-    numero: "05",
-    titulo: "Performance",
-    texto: "Monitoramento de KPIs, rastreabilidade e relatórios gerenciais customizados.",
-  },
-  {
-    numero: "06",
-    titulo: "Melhoria contínua",
-    texto: "Identificação constante de novas oportunidades de eficiência e redução de custo.",
-  },
-];
+export const integracoes = ["ERPs", "Transportadoras", "Operadores logísticos", "Despachantes", "Armadores", "Companhias aéreas"];
 
 export const segmentos = [
-  {
-    titulo: "Transporte de sensíveis",
-    texto: "Cargas de alto valor agregado, com exigência de controle e gerenciamento de risco.",
-  },
-  {
-    titulo: "Eletroeletrônicos",
-    texto: "Fluxos de produtos eletrônicos com necessidade de rastreabilidade e integridade.",
-  },
-  {
-    titulo: "Micro e macro informática",
-    texto: "Equipamentos e componentes de TI em operações inbound e outbound.",
-  },
-  {
-    titulo: "Telefonia móvel e fixa",
-    texto: "Distribuição de equipamentos de telecomunicações em escala nacional.",
-  },
-  {
-    titulo: "Produtos hospitalares",
-    texto: "Operações com exigência de conformidade e níveis de serviço rigorosos.",
-  },
-  {
-    titulo: "Produtos alimentícios",
-    texto: "Cadeias com prazos curtos e forte pressão sobre disponibilidade.",
-  },
-  {
-    titulo: "Produtos farmacêuticos",
-    texto: "Fluxos regulados, com controle documental e de condições de transporte.",
-  },
-  {
-    titulo: "Cosméticos",
-    texto: "Distribuição capilarizada com grande variedade de itens e destinos.",
-  },
+  { titulo: "Transporte de sensíveis", texto: "Cargas de alto valor agregado, com exigência de controle e gerenciamento de risco." },
+  { titulo: "Eletroeletrônicos", texto: "Fluxos que demandam rastreabilidade, integridade e precisão." },
+  { titulo: "Tecnologia e telecom", texto: "Equipamentos e componentes em operações inbound e outbound." },
+  { titulo: "Saúde e farmacêutico", texto: "Cadeias com controle documental e níveis de serviço rigorosos." },
+  { titulo: "Alimentos e cosméticos", texto: "Distribuição com variedade de itens, destinos e requisitos específicos." },
 ];
 
 export const diferenciais = [
-  {
-    titulo: "Redução de custos",
-    texto:
-      "Busca permanente por soluções de transporte e armazenagem capazes de otimizar o capital logístico.",
-  },
-  {
-    titulo: "Controle da operação",
-    texto: "Gestão integrada para acompanhar fornecedores, processos e resultados.",
-  },
-  {
-    titulo: "KPIs e performance",
-    texto: "Gestão baseada em indicadores customizados e em níveis de serviço acordados.",
-  },
-  {
-    titulo: "Visibilidade",
-    texto: "Informações estruturadas para facilitar decisões e antecipar problemas.",
-  },
-  {
-    titulo: "Tecnologia",
-    texto: "Integração de informações, processos e sistemas para aumentar controle e agilidade.",
-  },
-  {
-    titulo: "Melhoria contínua",
-    texto: "Parceria de longo prazo, com evolução constante de processos e tecnologia.",
-  },
+  { titulo: "Experiência desde 2006", texto: "Experiência em Gestão 4PL construída ao longo de operações reais." },
+  { titulo: "Operações complexas", texto: "Conhecimento construído na prática em cadeias logísticas de alta exigência." },
+  { titulo: "Gestão independente e integrada", texto: "Gestão de fornecedores e parceiros com visão integrada da cadeia." },
+  { titulo: "Tecnologia e inteligência de dados", texto: "Tecnologia aplicada à gestão e à tomada de decisão." },
+  { titulo: "Eficiência e redução de custos", texto: "Projetos estruturados para identificar oportunidades de eficiência." },
+  { titulo: "Profissionais especializados", texto: "Conhecimento técnico aplicado às necessidades da operação." },
+  { titulo: "Sustentabilidade", texto: "Sustentabilidade integrada à evolução da cadeia logística." },
 ];
 
-export const fluxo4pl = [
-  { titulo: "Cliente", texto: "Participação nas reuniões de planejamento de produção e vendas (S&OP)." },
-  { titulo: "Planejamento", texto: "Definição de estratégia, malha, capacidade e custos previstos." },
-  { titulo: "Gestão de fornecedores", texto: "Seleção, negociação e cobrança de resultados dos LSPs." },
-  { titulo: "Transporte", texto: "Gestão dos fluxos inbound e outbound em todo o Brasil." },
-  { titulo: "Armazenagem", texto: "Estruturação e gestão de armazéns e Centros de Distribuição." },
-  { titulo: "Distribuição", texto: "Entrega final ao consumidor dentro do nível de serviço acordado." },
-  { titulo: "Indicadores", texto: "Monitoramento de KPIs, auditoria de fretes e melhoria contínua." },
+export const metodologia = [
+  { numero: "01", titulo: "Diagnóstico", texto: "Entendimento da operação e identificação de oportunidades." },
+  { numero: "02", titulo: "Planejamento", texto: "Definição de estratégias, processos e indicadores." },
+  { numero: "03", titulo: "Implementação", texto: "Estruturação das soluções e dos fornecedores." },
+  { numero: "04", titulo: "Gestão", texto: "Acompanhamento contínuo da operação." },
+  { numero: "05", titulo: "Performance", texto: "Monitoramento dos resultados e KPIs." },
+  { numero: "06", titulo: "Melhoria contínua", texto: "Ajustes para evolução constante." },
 ];
+
+export const marcasHistoricas = ["Motorola Solutions", "Zebra Technologies", "Claro", "Axis Communications", "Dana Cosméticos", "Suez Water Technologies & Solutions"];

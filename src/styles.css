@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * FC Logística — design system
+ * FC Supply Tech Solutions — design system
  * Estética: corporativa, tecnológica e brasileira. Azul institucional + branco.
  */
 
@@ -216,6 +216,19 @@
 @keyframes reveal-soft {
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@utility animate-reveal {
+  animation: reveal-soft 0.7s ease both;
+}
+
+@utility hero-overlay {
+  background: linear-gradient(90deg, var(--color-ink) 0%, color-mix(in oklab, var(--color-ink) 96%, transparent) 42%, color-mix(in oklab, var(--color-ink) 28%, transparent) 76%, color-mix(in oklab, var(--color-ink) 8%, transparent) 100%);
+}
+
+@utility network-grid {
+  background-image: linear-gradient(var(--color-ink-border) 1px, transparent 1px), linear-gradient(90deg, var(--color-ink-border) 1px, transparent 1px);
+  background-size: 36px 36px;
 }
 
 @media (prefers-reduced-motion: reduce) {
