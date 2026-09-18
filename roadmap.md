@@ -7,5 +7,5 @@
 - [x] Implementar fundador, papel na cadeia, Gestão 4PL e soluções
 - [x] Implementar Integra Cargo, Integra Carbon e arquitetura do ecossistema sem inventar URLs
 - [x] Atualizar diferenciais, experiência, atuação nacional e contato B2B
-- [ ] Validar compilação, interações, desktop, tablet e celular
-- [ ] Revisar consistência visual final e acessibilidade
+- [x] Validar compilação, interações, desktop, tablet e celular
+- [x] Revisar consistência visual final e acessibilidade
