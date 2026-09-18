@@ -218,12 +218,3 @@ export const fluxo4pl = [
   { titulo: "Distribuição", texto: "Entrega final ao consumidor dentro do nível de serviço acordado." },
   { titulo: "Indicadores", texto: "Monitoramento de KPIs, auditoria de fretes e melhoria contínua." },
 ];
-
-export const resultados = [
-  { titulo: "Maior eficiência", texto: "Processos revistos e operação mais enxuta." },
-  { titulo: "Maior controle", texto: "Uma gestão única respondendo pela cadeia inteira." },
-  { titulo: "Redução de custos", texto: "Custos de transporte, estoque e distribuição sob revisão constante." },
-  { titulo: "Melhor performance", texto: "Níveis de serviço acordados e acompanhados." },
-  { titulo: "Visibilidade da operação", texto: "Dados e relatórios acessíveis para decidir." },
-  { titulo: "Decisões baseadas em dados", texto: "KPIs customizados para a realidade de cada operação." },
-];
