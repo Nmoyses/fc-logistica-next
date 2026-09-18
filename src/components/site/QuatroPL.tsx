@@ -1,75 +1,13 @@
-import { Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Section, SectionHeading } from "./Section";
-import { fluxo4pl } from "@/data/site";
-
-const entregas = [
-  "Redução de custos em procurement, estoque, transportes, distribuição e staff",
-  "Atualização permanente da tecnologia e inovação de processos",
-  "Tecnologia e visibilidade da operação",
-  "Melhoria contínua e parceria de longo prazo",
-  "Simplificação das relações comerciais e de controle",
-  "Aumento do nível de serviço",
-  "Estruturação de armazéns e Centros de Distribuição",
-  "Suporte ao planejamento de produção e vendas",
-  "Otimização da malha de distribuição",
-  "Consolidação de cargas próprias e com outras companhias",
-  "Monitoramento, rastreabilidade e controle de KPIs",
-  "Conferência, controle, pagamento e auditoria de fretes de terceiros",
-];
+import { fluxoCadeia } from "@/data/site";
 
 export function QuatroPL() {
   return (
-    <Section id="4pl" tone="ink">
-      <SectionHeading
-        tone="ink"
-        eyebrow="Metodologia 4PL"
-        title="O que é 4PL e por que isso muda a sua operação"
-         description="No modelo 4PL, a FC coordena a cadeia de ponta a ponta: participa do planejamento, organiza fornecedores, acompanha a execução e responde pelos indicadores acordados."
-      />
-
-      <div className="mt-16 grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
-        <div>
-           <h3 className="font-display text-sm font-semibold uppercase tracking-widest text-ink-muted">
-            Gestão integrada da cadeia
-          </h3>
-          <ol className="mt-8 relative border-l border-ink-border pl-8">
-            {fluxo4pl.map((etapa, i) => (
-              <li key={etapa.titulo} className="relative pb-8 last:pb-0">
-                <span
-                  className="absolute -left-[2.3rem] flex h-6 w-6 items-center justify-center rounded-full border border-accent bg-ink text-[0.6rem] font-semibold text-accent"
-                  aria-hidden="true"
-                >
-                  {i + 1}
-                </span>
-                <h4 className="font-display text-base font-semibold text-ink-foreground">
-                  {etapa.titulo}
-                </h4>
-                <p className="mt-1.5 text-sm leading-relaxed text-ink-muted">{etapa.texto}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-
-        <div>
-          <h3 className="font-display text-sm font-semibold uppercase tracking-widest text-ink-muted">
-            O que a gestão 4PL entrega
-          </h3>
-           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-             {entregas.slice(0, 8).map((item) => (
-              <li key={item} className="flex gap-3 text-sm leading-relaxed text-ink-muted">
-                <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-          <a
-            href="#contato"
-            className="mt-10 inline-flex items-center gap-2 border-b border-accent pb-1 font-display text-sm font-semibold text-accent transition-opacity hover:opacity-80"
-          >
-            Entenda nossa atuação 4PL na sua operação
-          </a>
-        </div>
-      </div>
+    <Section id="gestao-4pl" tone="ink">
+      <SectionHeading tone="ink" eyebrow="O que é Gestão 4PL?" title="Não somos apenas um operador logístico. Somos gestores da cadeia." description="A FC Supply Tech Solutions atua como uma extensão da estrutura de Supply Chain do cliente, coordenando transportadores, operadores, fornecedores, processos, tecnologia e indicadores." />
+      <div className="mt-14 overflow-x-auto pb-3"><ol className="flex min-w-[900px] items-stretch gap-3">{fluxoCadeia.map((item, index) => <li key={item} className="relative flex min-h-32 flex-1 items-center justify-center rounded-md border border-ink-border bg-ink-soft p-4 text-center"><div><span className="text-xs font-semibold text-accent">{String(index + 1).padStart(2, "0")}</span><span className="mt-3 block text-sm font-semibold text-ink-foreground">{item}</span></div>{index < fluxoCadeia.length - 1 && <ArrowRight className="absolute -right-3 z-10 h-5 w-5 rounded-full bg-accent p-1 text-accent-foreground" aria-hidden="true" />}</li>)}</ol></div>
+      <div className="mt-8 flex flex-wrap gap-2">{["Planejar", "Coordenar", "Executar com parceiros", "Monitorar", "Medir", "Otimizar"].map((item) => <span key={item} className="rounded-md border border-ink-border px-4 py-2 text-xs font-semibold uppercase text-ink-muted">{item}</span>)}</div>
     </Section>
   );
 }
