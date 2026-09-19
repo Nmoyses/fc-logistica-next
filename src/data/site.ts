@@ -19,7 +19,6 @@ export const navItems = [
 ];
 
 export const solucoes = [
-  { titulo: "Gestão 4PL", descricao: "Coordenação integrada do ecossistema logístico." },
   { titulo: "Gestão de transportes", descricao: "Gestão de operações inbound e outbound." },
   { titulo: "Gestão e desenvolvimento de fornecedores", descricao: "Prospecção, homologação, negociação e performance." },
   { titulo: "Cost saving", descricao: "Projetos estruturados de redução de custos logísticos." },
