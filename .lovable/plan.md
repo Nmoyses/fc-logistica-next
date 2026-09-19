@@ -1,57 +1,43 @@
-# Evolução institucional da FC Logística
+# Refinamento 2 — logos, 4PL e narrativa
 
 ## Objetivo
-Evoluir a página atual, sem reconstrução, publicação ou qualquer alteração em `fclogistica.com`, para posicionar a FC como torre de controle 4PL: gestão, coordenação, tecnologia, visibilidade e performance.
+Refinar a versão de homologação atual sem reconstruir a página, sem publicar e sem alterar `fclogistica.com`, eliminando repetição e elevando a apresentação das marcas históricas.
 
-## O que será preservado
-- Estrutura TanStack atual, identidade azul/branca, tipografia, contatos e conteúdo institucional confirmado.
-- Navegação fixa, comportamento mobile, formulário com validação, apresentação institucional e seções que já cumprem sua função.
-- Histórico desde 2006, atuação nacional, soluções, segmentos e marcas documentadas, sem novos números ou promessas.
+## Alterações
 
-## Alterações planejadas
+### 1. Experiência e marcas históricas
+- Remover as seis imagens atuais, que têm fundo, recorte ou qualidade inadequados.
+- Substituí-las somente por arquivos oficiais, preferencialmente SVG ou PNG transparente, obtidos em páginas ou bibliotecas oficiais das próprias marcas.
+- Não redesenhar, vetorizar, recolorir ou ajustar a composição interna de nenhuma marca.
+- Quando um arquivo oficial não puder ser verificado, exibir um espaço reservado discreto com o nome da empresa e indicação de arquivo oficial pendente, mantendo o componente pronto para receber o ativo depois.
+- Apresentar a grade sobre fundo branco, sem bordas pesadas, sombras, filtros, cortes ou carrossel, equilibrando visualmente cada marca por área disponível.
+- Manter integralmente a observação institucional sobre o vínculo comercial.
 
-### 1. Primeira impressão e fotografia
-- Substituir o hero atual por uma cena de control tower logística, com monitoramento de rotas, indicadores e visão nacional; sem trabalho físico de armazém.
-- Aplicar a headline, subheadline, destaque e CTAs solicitados, incluindo a linha de autoridade “Desde 2006 | Atuação nacional | Gestão 4PL”.
-- Substituir a imagem de “Quem Somos” por uma cena de análise, planejamento e controle logístico.
-- Otimizar e carregar de forma diferida todas as imagens fora da primeira tela.
+### 2. Consolidação do 4PL
+- Transformar as seções atuais “Onde a FC atua” e “Gestão 4PL” em uma única seção no ponto de navegação `#gestao-4pl`.
+- Usar o título “A FC coordena o ecossistema. Somos gestores da cadeia.” e o texto institucional fornecido.
+- Exibir uma única vez o fluxo Cliente → Planejamento → Fornecedores → Transporte → Armazenagem → Distribuição → Indicadores.
+- Destacar a FC Supply Tech Solutions como camada de Gestão • Coordenação • Integração • Controle.
+- Exibir abaixo as capacidades Planejar • Coordenar • Executar com parceiros • Monitorar • Medir • Otimizar.
+- Remover do fluxo da página o segundo componente redundante, sem apagar informações exclusivas.
 
-### 2. Narrativa e hierarquia
-- Ajustar “Quem Somos” para reforçar coordenação de operações, transportadoras, fornecedores, tecnologia e indicadores, sem sugerir execução física.
-- Criar “Onde a FC atua na cadeia logística”, com a FC centralizada entre embarcador, parceiros, transporte, distribuição e destino; capacidades de gestão aparecem no próprio diagrama.
-- Simplificar “4PL” para o fluxo: Planejar → Coordenar → Executar com parceiros → Monitorar → Medir → Otimizar.
-- Reordenar a página conforme a jornada solicitada, mantendo a leitura compacta e consolidando mensagens repetidas.
+### 3. Separação entre posicionamento e entregas
+- Manter o bloco 4PL dedicado ao modelo de gestão e ao papel da FC na cadeia.
+- Revisar “Soluções” para falar somente de serviços, capacidades e frentes entregues, evitando repetir a explicação do 4PL.
+- Preservar os serviços institucionais já confirmados, sem criar promessas, métricas ou informações comerciais.
 
-### 3. Soluções, tecnologia e método
-- Reorganizar as soluções existentes em 10 frentes curtas e escaneáveis, consolidando conteúdos relacionados sem apagar capacidades já descritas.
-- Refinar “Gestão + Tecnologia” com TMS, WMS, EDI, dashboards, KPIs, rastreamento, controle de fretes e integração; fluxo visual Dados → Informação → Gestão → Decisão → Performance.
-- Converter “Como geramos valor” em uma linha do tempo responsiva com seis etapas e uma frase curta por etapa.
-- Manter “Por que a FC?” como bloco único para diferenciais e impactos, sem recriar uma seção redundante.
+### 4. Ordem da narrativa
+- Reordenar os componentes existentes para aproximar a leitura de: história → posicionamento 4PL → soluções → tecnologia → sustentabilidade → experiência → diferenciais → conversão.
+- Manter seções institucionais complementares já implementadas, posicionando-as onde sustentem essa narrativa sem perda de conteúdo.
+- Preservar FC Supply Tech Solutions como identidade principal e a FC Logística apenas na narrativa histórica desde 2006.
 
-### 4. Experiência, segmentos e escala nacional
-- Usar os seis logos extraídos exclusivamente da documentação fornecida, em grid discreto e com a ressalva institucional já aprovada.
-- Refinar os segmentos com elementos gráficos específicos, sem imagens genéricas de estoque.
-- Criar “Gestão logística em escala nacional” com mapa do Brasil e rede visual abstrata, sem quantidades ou cobertura específica inventada.
-
-### 5. Conversão e contato
-- Atualizar o CTA final para “Vamos transformar sua operação logística?”, com “Fale com um especialista” e “Solicite uma conversa”.
-- Adicionar “Principal desafio” ao formulário com as opções solicitadas.
-- Manter a preparação por e-mail claramente identificada, remover qualquer estado que pareça confirmar envio real e preservar telefone, WhatsApp e e-mail.
-- Simplificar o menu para Início, Quem Somos, 4PL, Soluções, Experiência e Contato.
-
-### 6. Acabamento, SEO e validação
-- Reduzir blocos escuros, ampliar superfícies claras e aplicar microinterações discretas com respeito à preferência de movimento reduzido.
-- Atualizar title, description, headings, alt texts, URL canônica e Open Graph com linguagem natural e termos prioritários, sem repetição artificial.
-- Validar desktop, notebook, tablet e celular; testar menu, âncoras, CTAs, formulário, logos, fluxos e ausência de sobreposições.
-- Conferir compilação, erros no navegador, carregamento das imagens e links finais.
-
-## Detalhes técnicos
-- Novos diagramas serão componentes leves e responsivos, sem bibliotecas adicionais.
-- Imagens geradas serão usadas apenas para comunicar gestão e control tower; logos continuarão restritos aos arquivos extraídos da documentação.
-- A animação de entrada será progressiva e discreta, com fallback estático para `prefers-reduced-motion`.
-- Nenhum backend será criado nesta etapa e nenhum envio será simulado.
+## Validação
+- Conferir que o fluxo da cadeia aparece uma única vez e que as âncoras continuam funcionando.
+- Verificar todas as marcas carregadas e confirmar que nenhuma imagem antiga permanece referenciada.
+- Validar desktop, tablet e celular, incluindo ausência de cortes, sobreposições e rolagem horizontal.
+- Conferir compilação e erros do navegador.
 
 ## Limites
-- Não publicar, conectar domínio, alterar DNS ou tocar na versão oficial.
-- Não inventar clientes atuais, métricas, certificações, depoimentos, resultados ou cobertura detalhada.
-- Não remover informações existentes sem antes consolidá-las em outro ponto da página.
+- Não publicar, conectar domínio, alterar DNS ou tocar no site oficial.
+- Não usar imagens aleatórias, screenshots, recortes de PDF ou arquivos sem origem oficial verificável.
+- Não inventar clientes, números, resultados, certificações ou novos textos comerciais.
