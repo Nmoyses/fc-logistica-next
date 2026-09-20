@@ -1,7 +1,6 @@
 import motorola from "@/assets/brands-official/motorola-solutions.svg.asset.json";
 import claro from "@/assets/brands-official/claro.webp.asset.json";
 import axis from "@/assets/brands-official/axis-communications.png.asset.json";
-import dana from "@/assets/brands-official/dana-cosmeticos.png.asset.json";
 import { SectionHeading } from "./Section";
 
 const brands = [
@@ -9,7 +8,7 @@ const brands = [
   { name: "Zebra Technologies" },
   { name: "Claro", src: claro.url, size: "max-h-24 max-w-28" },
   { name: "Axis Communications", src: axis.url, size: "max-h-20 max-w-56" },
-  { name: "Dana Cosméticos", src: dana.url, size: "max-h-14 max-w-48" },
+  { name: "Dana Cosméticos" },
   { name: "SUEZ Water Technologies & Solutions" },
 ];
 
@@ -22,7 +21,7 @@ export function Experiencia() {
           {brands.map((brand) => (
             <li key={brand.name} className="flex min-h-40 items-center justify-center px-6 py-8 text-center">
               {brand.src ? (
-                <img src={brand.src} alt={brand.name} loading="lazy" className={`h-auto w-auto object-contain ${brand.size}`} />
+                <img src={brand.src} alt={brand.name} className={`h-auto w-auto object-contain ${brand.size}`} />
               ) : (
                 <div className="max-w-56" aria-label={`${brand.name}: arquivo oficial pendente`}>
                   <span className="block font-display text-base font-semibold text-foreground">{brand.name}</span>
