@@ -5,11 +5,11 @@ import { SectionHeading } from "./Section";
 
 const brands = [
   { name: "Motorola Solutions", src: motorola.url, size: "max-h-12 max-w-64" },
-  { name: "Zebra Technologies" },
+  { name: "Zebra Technologies", src: "/zebra-logo.png" },
   { name: "Claro", src: claro.url, size: "max-h-24 max-w-28" },
   { name: "Axis Communications", src: axis.url, size: "max-h-20 max-w-56" },
-  { name: "Dana Cosméticos" },
-  { name: "SUEZ Water Technologies & Solutions" },
+  { name: "Dana Cosméticos", src: "/danacosmeticos-logo.png" },
+  { name: "SUEZ Water Technologies & Solutions", src: "/suez-logo.png" },
 ];
 
 export function Experiencia() {
