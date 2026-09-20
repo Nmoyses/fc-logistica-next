@@ -15,11 +15,12 @@ export function ArquiteturaMarcas() {
         <SectionHeading 
           eyebrow="Arquitetura das marcas" 
           title="Um ecossistema com papéis claros" 
-          description="A FC permanece no centro da Gestão 4PL e do Supply Chain, conectada a frentes especializadas in tecnologia e sustentabilidade." 
+          description="A FC permanece no centro da Gestão 4PL e do Supply Chain, conectada a frentes especializadas em tecnologia e sustentabilidade." 
         />
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {marcas.map(({ nome, texto, Icon, central, image }) => {
             const ehIntegraCargo = nome === "Integra Cargo";
+            const ehIntegraCarbon = nome === "Integra Carbon";
             
             return (
               <article 
@@ -29,18 +30,20 @@ export function ArquiteturaMarcas() {
                     ? "rounded-lg bg-primary p-8 text-primary-foreground transform lg:scale-105 shadow-xl z-10" 
                     : ehIntegraCargo 
                       ? "rounded-lg bg-orange-600 p-8 text-white transform lg:scale-105 shadow-xl z-10" 
-                      : "card-fc p-8"
+                      : ehIntegraCarbon
+                        ? "rounded-lg bg-emerald-600 p-8 text-white transform lg:scale-105 shadow-xl z-10"
+                        : "card-fc p-8"
                 }
               >
                 {central ? (
                   <BrandLogo className="h-20 w-20 rounded-md" />
                 ) : image ? (
-                  <img src={image} alt={nome} className="h-10 w-auto object-contain mb-4 brightness-0 invert" />
+                  <img src={image} alt={nome} className="h-10 w-auto object-contain mb-4 rounded-sm" />
                 ) : (
-                  <Icon className="h-8 w-8 text-accent" aria-hidden="true" />
+                  <Icon className="h-8 w-8 text-white" aria-hidden="true" />
                 )}
                 <h3 className="mt-4 font-display text-xl font-semibold">{nome}</h3>
-                <p className={(central || ehIntegraCargo) ? "mt-4 text-sm leading-relaxed text-orange-50/90" : "mt-4 text-sm leading-relaxed text-muted-foreground"}>
+                <p className={(central || ehIntegraCargo || ehIntegraCarbon) ? "mt-4 text-sm leading-relaxed text-white/90" : "mt-4 text-sm leading-relaxed text-muted-foreground"}>
                   {texto}
                 </p>
               </article>
