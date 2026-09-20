@@ -3,10 +3,9 @@ import { Section, SectionHeading } from "./Section";
 import { BrandLogo } from "./BrandLogo";
 
 const marcas = [
-  { nome: "FC Supply Tech Solutions", texto: "Gestão 4PL, Supply Chain, pessoas, processos e coordenação do ecossistema logístico.", Icon: Network, central: true },
-  { nome: "Integra Cargo", texto: "Software, integração, automação, IA e inteligência aplicada à logística.", Icon: Cpu, central: false },
+ { nome: "FC Supply Tech Solutions", texto: "Gestão 4PL, Supply Chain, pessoas, processos e coordenação do ecossistema logístico.", Icon: Network, central: true },
+  { nome: "Integra Cargo", texto: "Software, integração, automação, IA e inteligência aplicada à logística.", Icon: Cpu, central: false, image: "/integra-cargo-logo.png" },
   { nome: "Integra Carbon", texto: "Inventário de emissões, descarbonização, certificação e soluções relacionadas ao mercado de carbono.", Icon: Leaf, central: false },
-];
 
 export function ArquiteturaMarcas() {
   return (
@@ -16,7 +15,13 @@ export function ArquiteturaMarcas() {
         {marcas.map(({ nome, texto, Icon, central }) => (
           <article key={nome} className={central ? "rounded-lg bg-primary p-8 text-primary-foreground" : "card-fc p-8"}>
             {central ? <BrandLogo className="h-20 w-20 rounded-md" /> : <Icon className="h-8 w-8 text-accent" aria-hidden="true" />}
-            <h3 className="mt-8 font-display text-xl font-semibold">{nome}</h3>
+           {central ? (
+  <BrandLogo className="h-20 w-20 rounded-md" />
+) : marcas.image ? (
+  <img src={marcas.image} alt={nome} className="h-8 w-auto object-contain" />
+) : (
+  <Icon className="h-8 w-8 text-accent" aria-hidden="true" />
+)}
             <p className={central ? "mt-4 text-sm leading-relaxed text-ink-muted" : "mt-4 text-sm leading-relaxed text-muted-foreground"}>{texto}</p>
           </article>
         ))}
