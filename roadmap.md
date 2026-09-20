@@ -14,4 +14,4 @@
 - [x] Consolidar explicações do 4PL em uma única seção
 - [x] Separar posicionamento 4PL das entregas em Soluções
 - [x] Reordenar a narrativa preservando todo o conteúdo institucional
-- [ ] Validar desktop, tablet, celular, links e erros
+- [x] Validar desktop, tablet, celular, links e erros
