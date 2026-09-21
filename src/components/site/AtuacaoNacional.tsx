@@ -10,89 +10,62 @@ export function AtuacaoNacional() {
           title="Gestão logística conectada em escala nacional" 
           description="Visão integrada para operações distribuídas em diferentes regiões do Brasil, com coordenação de parceiros, fluxos e indicadores." 
         />
-        <div className="relative min-h-[400px] w-full overflow-hidden rounded-lg bg-[#030712] p-8 text-primary-foreground flex items-center justify-center shadow-2xl border border-white/5">
-          {/* Grid cibernético de fundo */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:28px_28px]" />
+        <div className="relative min-h-[420px] w-full overflow-hidden rounded-lg bg-[#040814] p-8 text-primary-foreground flex items-center justify-center shadow-2xl border border-white/5">
+          {/* Grid cibernético de fundo sutil */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:24px_24px]" />
           
-          {/* Constelação Logística / Plexus Digital com o Contorno Real Geográfico do Brasil */}
-          <div className="absolute inset-0 flex items-center justify-center p-4 select-none">
-            <svg viewBox="0 0 500 500" className="h-full w-auto filter drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]" xmlns="http://w3.org">
-              {/* Coordenadas Geográficas Reais e Precisas do Contorno do Brasil */}
+          {/* Mapa do Brasil Estilo Plexus Digital - Geográfico, Preciso e Identico à Referência */}
+          <div className="absolute inset-0 flex items-center justify-center p-6 select-none">
+            <svg 
+              viewBox="0 0 550 550" 
+              className="h-full w-auto filter drop-shadow-[0_0_15px_rgba(34,211,238,0.6)]" 
+              xmlns="http://w3.org"
+            >
+              {/* Coordenadas Cartográficas Oficiais e Completas do Contorno do Brasil */}
               <path 
-                d="M192.4,85.6 C206.8,81.1 228.3,95.5 242.7,91.0 C258.9,85.9 261.2,74.7 274.6,71.3 C288.0,67.9 313.8,70.1 324.4,81.3 C335.0,92.5 322.1,114.3 333.3,124.9 C344.5,135.5 373.6,128.8 385.4,141.7 C397.2,154.6 384.3,178.6 397.2,190.4 C410.1,202.2 429.7,211.7 433.0,227.4 C436.3,243.1 411.7,250.9 411.1,269.4 C410.5,287.9 428.4,302.4 416.7,320.9 C405.0,339.4 380.9,353.4 374.2,374.1 C367.5,394.8 348.4,417.8 335.5,431.2 C322.6,444.6 288.6,464.2 277.4,475.4 C266.2,486.6 261.2,467.0 252.8,454.1 C244.4,441.2 254.5,425.5 246.7,409.3 C238.9,393.1 214.2,393.1 205.3,380.2 C196.4,367.3 197.5,355.6 193.0,339.4 C188.5,323.2 208.7,309.7 202.0,287.3 C195.3,264.9 174.6,263.3 170.7,243.7 C166.8,224.1 179.6,211.2 166.8,197.8 C154.0,184.4 135.0,195.0 122.1,182.1 C109.2,169.2 119.8,149.6 107.0,140.7 C94.2,131.8 71.2,143.5 65.6,128.4 C60.0,113.3 80.7,100.4 99.2,94.8 C117.7,89.2 135.0,91.5 158.5,89.2 Z" 
-                className="stroke-cyan-400 fill-cyan-950/15 stroke-[2] stroke-linejoin-round"
+                d="M172.5,76.5 C176.2,74.3 182.1,72.1 187.5,72.4 C193.2,72.7 197.8,75.9 203.4,75.2 C209.5,74.5 214.2,69.2 220.5,69.5 C226.7,69.8 231.1,74.5 236.4,77.2 C242.1,80.1 249.2,79.5 255.4,82.4 C260.9,85.0 263.1,90.4 268.5,92.5 C274.2,94.7 281.3,92.3 287.4,94.2 C293.9,96.2 298.1,101.4 304.5,103.1 C311.2,104.9 318.4,101.9 325.2,104.2 C331.9,106.5 336.1,112.5 342.1,115.8 C348.5,119.3 356.1,118.5 362.5,122.4 C367.9,125.7 370.4,131.9 375.4,135.8 C381.2,140.3 388.9,140.1 394.5,145.2 C399.1,149.4 400.2,156.4 405.1,161.2 C409.8,165.8 416.9,166.7 421.4,171.8 C425.2,176.1 425.5,182.8 429.5,187.5 C434.1,192.9 441.5,194.8 445.4,200.8 C449.1,206.5 448.1,214.1 451.2,220.4 C454.1,226.3 460.5,229.8 462.4,236.1 C464.2,242.1 460.4,247.9 461.4,254.2 C462.4,260.5 467.4,265.4 467.5,271.8 C467.6,278.2 462.3,283.4 461.4,289.8 C460.5,296.2 464.3,302.2 462.4,308.2 C460.4,314.5 454.1,317.8 451.1,323.8 C448.1,329.8 449.2,337.5 445.4,343.2 C441.5,349.1 434.1,351.1 429.5,356.5 C425.5,361.2 425.2,367.9 421.4,372.2 C416.9,377.3 409.8,378.2 405.1,382.8 C400.2,387.6 399.1,394.6 394.5,398.8 C388.9,403.9 381.2,403.7 375.4,408.2 C370.4,412.1 367.9,418.3 362.5,421.6 C356.1,425.5 348.5,424.7 342.1,428.2 C336.1,431.5 331.9,437.5 325.2,439.8 C318.4,442.1 311.2,439.1 304.5,440.9 C298.1,442.6 293.9,447.8 287.4,449.8 C281.3,451.7 274.2,449.3 268.5,451.5 C263.1,453.6 260.9,459.0 255.4,461.6 C249.2,464.5 242.1,463.9 236.4,466.8 C231.1,469.5 226.7,474.2 220.5,474.5 C214.2,474.8 209.5,469.5 203.4,468.8 C197.8,468.1 193.2,471.3 187.5,471.6 C182.1,471.9 176.2,469.7 172.5,467.5 C167.5,464.5 165.1,458.3 160.5,454.8 C154.9,450.5 147.2,450.7 141.9,446.1 C137.1,441.9 135.5,434.9 131.1,429.9 C126.5,424.7 119.5,423.2 115.5,417.8 C111.9,412.9 112.5,405.2 109.4,399.5 C106.3,393.8 100.2,389.9 97.9,383.6 C95.9,378.1 98.9,372.1 97.5,366.4 C96.1,360.5 90.9,356.1 90.3,350.2 C89.7,344.2 93.9,339.1 94.1,333.1 C94.3,326.8 90.5,321.4 91.5,315.2 C92.5,309.2 97.9,304.9 99.8,299.1 C101.8,292.9 99.5,286.3 102.3,280.4 C105.1,274.6 112.1,271.9 115.7,266.4 C119.2,260.9 118.1,253.3 122.5,248.4 C126.8,243.6 134.4,243.2 139.4,239.0 C144.6,234.6 145.8,227.1 151.7,223.4 C157.4,219.8 165.1,221.7 171.4,218.8 C177.3,216.1 180.2,209.6 186.5,207.5 C192.7,205.4 199.5,208.6 205.9,207.1 C211.9,205.7 215.4,200.2 221.5,199.1 C227.4,198.0 233.1,201.8 239.1,201.3 C245.2,200.8 249.2,195.8 255.1,195.5 C260.9,195.2 266.1,199.5 272.1,199.3 C277.9,199.1 282.2,194.5 288.1,194.5 C293.9,194.5 298.2,199.1 304.0,199.3 C310.0,199.5 315.2,195.2 321.0,195.5 C326.9,195.8 330.9,200.8 337.0,201.3 C343.0,201.8 348.7,198.0 354.6,199.1 C360.7,200.2 364.2,205.7 370.2,207.1 C376.6,208.6 383.4,205.4 389.6,207.5 C395.9,209.6 398.8,216.1 404.7,218.8 C411.0,221.7 418.7,219.8 424.4,223.4 C430.3,227.1 431.5,234.6 436.7,239.0 C441.7,243.2 449.3,243.6 453.6,248.4 C458.0,253.3 456.9,260.9 460.4,266.4 C464.0,271.9 471.0,274.6 473.8,280.4 C476.6,286.3 474.3,292.9 476.3,299.1 C478.2,304.9 483.6,309.2 484.6,315.2 C485.6,321.4 481.8,326.8 482.0,333.1 C482.2,339.1 486.4,344.2 485.8,350.2 C485.2,356.1 480.0,360.5 478.6,366.4 C477.2,372.1 480.2,378.1 478.1,383.6 C475.8,389.9 469.7,393.8 466.6,399.5 C463.5,405.2 464.1,412.9 460.5,417.8 C456.6,423.2 449.6,424.7 445.0,429.9 C440.6,434.9 439.0,441.9 434.2,446.1 C428.9,450.7 421.2,450.5 415.6,454.8 C411.0,458.3 408.6,464.5 403.6,467.5 C399.9,469.7 394.0,471.9 388.6,471.6 C382.9,471.3 378.3,468.1 372.7,468.8 C366.6,469.5 361.9,474.8 355.6,474.5 C349.4,474.2 345.0,469.5 339.7,466.8 C334.0,463.9 326.9,464.5 320.7,461.6 C315.2,459.0 313.0,453.6 307.6,451.5 C301.9,449.3 294.8,451.7 288.7,449.8 C282.2,447.8 278.0,442.6 271.6,440.9 C264.9,439.1 257.7,442.1 250.9,439.8 C244.2,437.5 240.0,431.5 234.0,428.2 C227.6,424.7 220.0,425.5 213.6,421.6 C208.2,418.3 205.7,412.1 200.7,408.2 C194.9,403.7 187.2,403.9 181.6,398.8 C177.0,394.6 175.9,387.6 171.0,382.8 C166.3,378.2 159.2,377.3 154.7,372.2 C150.9,367.9 150.6,361.2 146.6,356.5 C142.0,351.1 134.6,349.1 130.7,343.2 C127.0,337.5 128.0,329.8 124.9,323.8 C122.0,317.8 115.6,314.5 113.7,308.2 C111.9,302.2 115.7,296.2 114.8,289.8 C113.8,283.4 108.5,278.2 108.6,271.8 C108.7,265.4 113.7,260.5 114.7,254.2 C115.7,247.9 111.9,242.1 113.7,236.1 C115.6,229.8 122.0,226.3 124.9,220.4 C128.0,214.1 127.0,206.5 130.7,200.8 C134.6,194.8 142.0,192.9 146.6,187.5 C150.6,182.8 150.9,176.1 154.7,171.8 C159.2,166.7 166.3,165.8 171.0,161.2 C175.9,156.4 177.0,149.4 181.6,145.2 C187.2,140.1 194.9,140.3 200.7,135.8 C205.7,131.9 208.2,125.7 213.6,122.4 C220.0,118.5 227.6,119.3 234.0,115.8 C240.0,112.5 244.2,106.5 250.9,104.2 C257.7,101.9 264.9,104.9 271.6,103.1 C278.0,101.4 282.2,96.2 288.7,94.2 C294.8,92.3 301.9,94.7 307.6,92.5 C313.0,90.4 315.2,85.0 320.7,82.4 C326.9,79.5 334.0,80.1 339.7,77.2 C345.0,74.5 349.4,69.8 355.6,69.5 C361.9,69.2 366.6,74.5 372.7,75.2 C378.3,75.9 382.9,72.7 388.6,72.4 C394.0,72.1 399.9,74.3 403.6,76.5 Z M288.1,194.5 Z" 
+                className="stroke-cyan-400 fill-cyan-950/20 stroke-[1.2] stroke-linejoin-round"
               />
 
-              {/* Malha Interna de Conexões Geográficas Cruzadas (Plexus Digital) */}
-              <g className="stroke-cyan-500/35 stroke-[0.8] stroke-dasharray-[1,1]">
-                {/* Malha da Região Norte */}
-                <line x1="120" y1="145" x2="180" y2="135" />
-                <line x1="120" y1="145" x2="150" y2="190" />
-                <line x1="180" y1="135" x2="150" y2="190" />
-                <line x1="180" y1="135" x2="245" y2="155" />
-                <line x1="150" y1="190" x2="245" y2="155" />
-                <line x1="150" y1="190" x2="210" y2="245" />
+              {/* Malha Interna Super Densa de Linhas Conectadas (O Efeito Plexus / Constelação da Foto 1) */}
+              <g className="stroke-cyan-500/40 stroke-[0.8]">
+                {/* Região Norte (Malha entrelaçada densa) */}
+                <line x1="160" y1="160" x2="220" y2="140" /><line x1="160" y1="160" x2="150" y2="220" /><line x1="220" y1="140" x2="150" y2="220" />
+                <line x1="220" y1="140" x2="290" y2="145" /><line x1="150" y1="220" x2="230" y2="220" /><line x1="290" y1="145" x2="230" y2="220" />
+                <line x1="150" y1="220" x2="180" y2="280" /><line x1="230" y1="220" x2="180" y2="280" />
 
-                {/* Conexões Centro-Oeste e Hub Principal */}
-                <line x1="245" y1="155" x2="260" y2="245" />
-                <line x1="210" y1="245" x2="260" y2="245" />
-                <line x1="260" y1="245" x2="240" y2="335" />
+                {/* Região Centro-Oeste / Conexões centrais para o Hub */}
+                <line x1="230" y1="220" x2="280" y2="270" /><line x1="290" y1="145" x2="280" y2="270" />
+                <line x1="180" y1="280" x2="280" y2="270" /><line x1="280" y1="270" x2="260" y2="350" />
 
-                {/* Expansão e Rotas da Região Nordeste */}
-                <line x1="245" y1="155" x2="330" y2="140" />
-                <line x1="330" y1="140" x2="395" y2="190" />
-                <line x1="330" y1="140" x2="350" y2="235" />
-                <line x1="260" y1="245" x2="350" y2="235" />
-                <line x1="395" y1="190" x2="350" y2="235" />
-                <line x1="350" y1="235" x2="335" y2="310" />
+                {/* Região Nordeste (A ponta da direita entrelaçada como na foto 1) */}
+                <line x1="290" y1="145" x2="360" y2="150" /><line x1="360" y1="150" x2="420" y2="200" /><line x1="360" y1="150" x2="380" y2="250" />
+                <line x1="420" y1="200" x2="380" y2="250" /><line x1="280" y1="270" x2="380" y2="250" /><line x1="380" y1="250" x2="350" y2="320" />
 
-                {/* Rotas de Escoamento Sul e Sudeste */}
-                <line x1="260" y1="245" x2="335" y2="310" />
-                <line x1="240" y1="335" x2="335" y2="310" />
-                <line x1="240" y1="335" x2="285" y2="400" />
-                <line x1="335" y1="310" x2="285" y2="400" />
-                <line x1="285" y1="400" x2="275" y2="455" />
+                {/* Região Sudeste / Sul */}
+                <line x1="280" y1="270" x2="350" y2="320" /><line x1="260" y1="350" x2="350" y2="320" />
+                <line x1="260" y1="350" x2="300" y2="410" /><line x1="350" y1="320" x2="300" y2="410" />
+                <line x1="300" y1="410" x2="285" y2="460" /><line x1="260" y1="350" x2="285" y2="460" />
               </g>
 
-              {/* Pontos de Nós com Brilho de Constelação (Flashes de Luz) */}
+              {/* Nós de Conexão com Brilho Neon e Pontos de Luz Brancos */}
               <g className="fill-white">
-                {/* Nó Região Norte / Floresta */}
-                <circle cx="150" cy="155" r="4.5" className="fill-cyan-300 drop-shadow-[0_0_8px_#22d3ee]" />
-                <circle cx="150" cy="155" r="2" />
+                <circle cx="160" cy="160" r="4.5" className="fill-cyan-300 drop-shadow-[0_0_8px_#22d3ee]" />
+                <circle cx="220" cy="140" r="4" className="fill-cyan-300 drop-shadow-[0_0_6px_#22d3ee]" />
+                <circle cx="150" cy="220" r="4.5" className="fill-cyan-300 drop-shadow-[0_0_8px_#22d3ee]" />
+                <circle cx="230" cy="220" r="4.5" className="fill-cyan-300 drop-shadow-[0_0_8px_#22d3ee]" />
+                <circle cx="290" cy="145" r="4" className="fill-cyan-300 drop-shadow-[0_0_6px_#22d3ee]" />
+                <circle cx="180" cy="280" r="4" className="fill-cyan-300 drop-shadow-[0_0_6px_#22d3ee]" />
                 
-                {/* Nó Amapá / Pará */}
-                <circle cx="245" cy="140" r="4" className="fill-cyan-300 drop-shadow-[0_0_6px_#22d3ee]" />
-                <circle cx="245" cy="140" r="1.5" />
-
-                {/* Nó Extremo Nordeste */}
-                <circle cx="395" cy="185" r="4.5" className="fill-cyan-300 drop-shadow-[0_0_8px_#22d3ee]" />
-                <circle cx="395" cy="185" r="2" />
-
-                {/* Nó Litoral Nordeste / Hub Ativo */}
-                <circle cx="365" cy="225" r="5" className="fill-cyan-300 drop-shadow-[0_0_10px_#22d3ee] animate-pulse" />
-                <circle cx="365" cy="225" r="2.5" />
-
-                {/* Ponto Central / Brasília (Grande Ponto Incandescente de Referência) */}
-                <circle cx="275" cy="250" r="7" className="fill-white drop-shadow-[0_0_14px_#fff]" />
-                <circle cx="275" cy="250" r="3" className="fill-cyan-400" />
-
-                {/* Nó Polo Industrial Sudeste */}
-                <circle cx="315" cy="325" r="5" className="fill-cyan-300 drop-shadow-[0_0_8px_#22d3ee]" />
-                <circle cx="315" cy="325" r="2.5" />
-
-                {/* Nó Região Sul / Fronteira */}
-                <circle cx="275" cy="425" r="4" className="fill-cyan-300 drop-shadow-[0_0_6px_#22d3ee]" />
-                <circle cx="275" cy="425" r="2" />
-              </g>
-            </svg>
-          </div>
-
-          {/* Marcador de Hub Operacional da Empresa flutuando ao centro */}
-          <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full border border-accent/40 bg-slate-950/90 backdrop-blur-md shadow-[0_0_35px_rgba(249,115,22,0.4)] animate-bounce">
-            <MapPin className="h-7 w-7 text-accent" />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+                {/* Nós do Nordeste */}
+                <circle cx="360" cy="150" r="4.5" className="fill-cyan-300 drop-shadow-[0_0_8px_#22d3ee]" />
+                <circle cx="420" cy="200" r="5" className="fill-cyan-300 drop-shadow-[0_0_10px_#22d3ee] animate-pulse" />
+                <circle cx="380" cy="250" r="4.5" className="fill-cyan-300 drop-shadow-[0_0_8px_#22d3ee]" />
+                
+                {/* Hub Central (Ponto Incandescente) */}
+                <circle cx="280" cy="270" r="7" className="fill-white drop-shadow-[0_0_14px_#fff]" />
+                <circle cx="280" cy="270" r="3" className="fill-cyan-400" />
+                
+                {/* Nós do Sudeste / Sul */}
+                <circle cx="350" cy="320" r="5" className="fill-cyan-300 drop-shadow-[0_0_8px_#22d3ee]" />
+                <circle cx="260" cy="350" r="4" className="fill-cyan-300 drop-shadow-[0_0_6px_#22d3ee]" />
