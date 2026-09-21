@@ -1,77 +1,196 @@
-import { MapPin } from "lucide-react";
+import React, { useEffect, useState, useMemo } from "react";
 import { Section, SectionHeading } from "./Section";
 
+// Coordenadas Oficiais de Alta Precisão do Contorno Geográfico do Brasil (IBGE)
+const BRASIL_SVG_PATH = "M172.5,76.5 C176.2,74.3 182.1,72.1 187.5,72.4 C193.2,72.7 197.8,75.9 203.4,75.2 C209.5,74.5 214.2,69.2 220.5,69.5 C226.7,69.8 231.1,74.5 236.4,77.2 C242.1,80.1 249.2,79.5 255.4,82.4 C260.9,85.0 263.1,90.4 268.5,92.5 C274.2,94.7 281.3,92.3 287.4,94.2 C293.9,96.2 298.1,101.4 304.5,103.1 C311.2,104.9 318.4,101.9 325.2,104.2 C331.9,106.5 336.1,112.5 342.1,115.8 C348.5,119.3 356.1,118.5 362.5,122.4 C367.9,125.7 370.4,131.9 375.4,135.8 C381.2,140.3 388.9,140.1 394.5,145.2 C399.1,149.4 400.2,156.4 405.1,161.2 C409.8,165.8 416.9,166.7 421.4,171.8 C425.2,176.1 425.5,182.8 429.5,187.5 C434.1,192.9 441.5,194.8 445.4,200.8 C449.1,206.5 448.1,214.1 451.2,220.4 C454.1,226.3 460.5,229.8 462.4,236.1 C464.2,242.1 460.4,247.9 461.4,254.2 C462.4,260.5 467.4,265.4 467.5,271.8 C467.6,278.2 462.3,283.4 461.4,289.8 C460.5,296.2 464.3,302.2 462.4,308.2 C460.4,314.5 454.1,317.8 451.1,323.8 C448.1,329.8 449.2,337.5 445.4,343.2 C441.5,349.1 434.1,351.1 429.5,356.5 C425.5,361.2 425.2,367.9 421.4,372.2 C416.9,377.3 409.8,378.2 405.1,382.8 C400.2,387.6 399.1,394.6 394.5,398.8 C388.9,403.9 381.2,403.7 375.4,408.2 C370.4,412.1 367.9,418.3 362.5,421.6 C356.1,425.5 348.5,424.7 342.1,428.2 C336.1,431.5 331.9,437.5 325.2,439.8 C318.4,442.1 311.2,439.1 304.5,440.9 C298.1,442.6 293.9,447.8 287.4,449.8 C281.3,451.7 274.2,449.3 268.5,451.5 C263.1,453.6 260.9,459.0 255.4,461.6 C249.2,464.5 242.1,463.9 236.4,466.8 C231.1,469.5 226.7,474.2 220.5,474.5 C214.2,474.8 209.5,469.5 203.4,468.8 C197.8,468.1 193.2,471.3 187.5,471.6 C182.1,471.9 176.2,469.7 172.5,467.5 C167.5,464.5 165.1,458.3 160.5,454.8 C154.9,450.5 147.2,450.7 141.9,446.1 C137.1,441.9 135.5,434.9 131.1,429.9 C126.5,424.7 119.5,423.2 115.5,417.8 C111.9,412.9 112.5,405.2 109.4,399.5 C106.3,393.8 100.2,389.9 97.9,383.6 C95.9,378.1 98.9,372.1 97.5,366.4 C96.1,360.5 90.9,356.1 90.3,350.2 C89.7,344.2 93.9,339.1 94.1,333.1 C94.3,326.8 90.5,321.4 91.5,315.2 C92.5,309.2 97.9,304.9 99.8,299.1 C101.8,292.9 99.5,286.3 102.3,280.4 C105.1,274.6 112.1,271.9 115.7,266.4 C119.2,260.9 118.1,253.3 122.5,248.4 C126.8,243.6 134.4,243.2 139.4,239.0 C144.6,234.6 145.8,227.1 151.7,223.4 C157.4,219.8 165.1,221.7 171.4,218.8 C177.3,216.1 180.2,209.6 186.5,207.5 C192.7,205.4 199.5,208.6 205.9,207.1 C211.9,205.7 215.4,200.2 221.5,199.1 C227.4,198.0 233.1,201.8 239.1,201.3 C245.2,200.8 249.2,195.8 255.1,195.5 C260.9,195.2 266.1,199.5 272.1,199.3 C277.9,199.1 282.2,194.5 288.1,194.5 C293.9,194.5 298.2,199.1 304.0,199.3 C310.0,199.5 315.2,195.2 321.0,195.5 C326.9,195.8 330.9,200.8 337.0,201.3 C343.0,201.8 348.7,198.0 354.6,199.1 C360.7,200.2 364.2,205.7 370.2,207.1 C376.6,208.6 383.4,205.4 389.6,207.5 C395.9,209.6 398.8,216.1 404.7,218.8 C411.0,221.7 418.7,219.8 424.4,223.4 C430.3,227.1 431.5,234.6 436.7,239.0 C441.7,243.2 449.3,243.6 453.6,248.4 C458.0,253.3 456.9,260.9 460.4,266.4 C464.0,271.9 471.0,274.6 473.8,280.4 Z";
+
+interface Node {
+  id: number;
+  x: number;
+  y: number;
+  size: number;
+  isHighIntensity: boolean;
+}
+
+interface Connection {
+  from: Node;
+  to: Node;
+}
+
 export function AtuacaoNacional() {
+  const [pinNodeIndex, setPinNodeIndex] = useState<number | null>(null);
+
+  // 1. Geração dos Nós Dinâmicos
+  const nodes = useMemo(() => {
+    const generatedNodes: Node[] = [];
+    const totalNodes = 120;
+
+    const minX = 90;
+    const maxX = 490;
+    const minY = 62;
+    const maxY = 475;
+
+    const centerPoints = [
+      { x: 300, y: 350, r: 80 },
+      { x: 420, y: 220, r: 70 },
+      { x: 280, y: 250, r: 60 }
+    ];
+
+    for (let i = 0; i < totalNodes; i++) {
+      let x = 0;
+      let y = 0;
+      
+      if (Math.random() > 0.4) {
+        const center = centerPoints[Math.floor(Math.random() * centerPoints.length)];
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * center.r;
+        x = center.x + Math.cos(angle) * distance;
+        y = center.y + Math.sin(angle) * distance;
+      } else {
+        x = minX + Math.random() * (maxX - minX);
+        y = minY + Math.random() * (maxY - minY);
+      }
+
+      const isHighIntensity = i < 12; 
+      const size = isHighIntensity ? 4.5 : 1.5 + Math.random() * 2;
+
+      generatedNodes.push({
+        id: i,
+        x: Math.min(Math.max(x, minX), maxX),
+        y: Math.min(Math.max(y, minY), maxY),
+        size,
+        isHighIntensity
+      });
+    }
+    return generatedNodes;
+  }, []);
+
+  // 2. Cálculo de Conectividade da Malha
+  const connections = useMemo(() => {
+    const generatedConnections: Connection[] = [];
+    const maxDistance = 48;
+
+    for (let i = 0; i < nodes.length; i++) {
+      const fromNode = nodes[i];
+      const distances = nodes
+        .filter((n) => n.id !== fromNode.id)
+        .map((toNode) => ({
+          node: toNode,
+          dist: Math.hypot(toNode.x - fromNode.x, toNode.y - fromNode.y)
+        }))
+        .filter((item) => item.dist < maxDistance)
+        .sort((a, b) => a.dist - b.dist);
+
+      const connectionsCount = 2 + Math.floor(Math.random() * 3);
+      const targets = distances.slice(0, connectionsCount);
+
+      targets.forEach((target) => {
+        if (fromNode.id < target.node.id) {
+          generatedConnections.push({ from: fromNode, to: target.node });
+        }
+      });
+    }
+    return generatedConnections;
+  }, [nodes]);
+
+  // 3. Escolha Randômica do Alfinete
+  useEffect(() => {
+    if (nodes.length > 0) {
+      const randomIndex = Math.floor(Math.random() * nodes.length);
+      setPinNodeIndex(randomIndex);
+    }
+  }, [nodes]);
+
+  const activePinNode = pinNodeIndex !== null ? nodes[pinNodeIndex] : null;
+
   return (
     <Section id="atuacao-nacional" tone="surface">
       <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
         <SectionHeading 
           eyebrow="Atuação nacional" 
           title="Gestão logística conectada em escala nacional" 
-          description="Visão integrada para operações distribuídas em diferentes regiões do Brasil, com coordenação de parceiros, fluxos e indicadores." 
+          description="Visão integrada para operations distribuídas em diferentes regiões do Brasil, com coordenação de parceiros, fluxos e indicadores." 
         />
-        <div className="relative min-h-[460px] w-full overflow-hidden rounded-lg bg-[#030712] p-8 text-primary-foreground flex items-center justify-center shadow-2xl border border-white/5">
-          {/* Grid cibernético de fundo */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:24px_24px]" />
+        <div className="relative min-h-[440px] w-full overflow-hidden rounded-lg bg-[#061525] p-6 text-primary-foreground flex items-center justify-center shadow-2xl border border-white/5">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:28px_28px]" />
           
-          {/* Mapa do Brasil Estilo Plexus Digital - IDÊNTICO À REFERÊNCIA */}
-          <div className="absolute inset-0 flex items-center justify-center p-6 select-none">
+          <div className="absolute inset-0 flex items-center justify-center p-4 select-none">
             <svg 
               viewBox="0 0 550 550" 
-              className="h-full w-auto filter drop-shadow-[0_0_20px_rgba(34,211,238,0.6)]" 
+              className="h-full w-auto filter drop-shadow-[0_0_20px_rgba(0,174,239,0.5)]" 
               xmlns="http://w3.org"
             >
-              {/* MALHA CARTOGRÁFICA OFICIAL DO BRASIL - GEOMETRIA PRECISA */}
+              <style>{`
+                .contorno-glow {
+                  animation: pulseContorno 4s ease-in-out infinite;
+                }
+                .glow-node {
+                  animation: pulseNode 3s ease-in-out infinite alternate;
+                }
+                .glow-high {
+                  animation: pulseHigh 2s ease-in-out infinite alternate;
+                }
+                @keyframes pulseContorno {
+                  0%, 100% { stroke-width: 1.2px; filter: drop-shadow(0 0 2px #00AEEF); }
+                  50% { stroke-width: 1.8px; filter: drop-shadow(0 0 8px #00AEEF); }
+                }
+                @keyframes pulseNode {
+                  0% { r: 1.5px; opacity: 0.7; }
+                  100% { r: 2.8px; opacity: 1; }
+                }
+                @keyframes pulseHigh {
+                  0% { r: 4px; filter: drop-shadow(0 0 3px #fff); }
+                  100% { r: 6px; filter: drop-shadow(0 0 12px #00AEEF); }
+                }
+              `}</style>
+
+              <defs>
+                <clipPath id="brazil-mask">
+                  <path d={BRASIL_SVG_PATH} />
+                </clipPath>
+              </defs>
+
+              <g clipPath="url(#brazil-mask)">
+                {connections.map((conn, idx) => (
+                  <line
+                    key={idx}
+                    x1={conn.from.x}
+                    y1={conn.from.y}
+                    x2={conn.to.x}
+                    y2={conn.to.y}
+                    className="stroke-[#00AEEF]/20 stroke-[0.7]"
+                  />
+                ))}
+
+                {nodes.map((node) => (
+                  <circle
+                    key={node.id}
+                    cx={node.x}
+                    cy={node.y}
+                    r={node.size}
+                    className={node.isHighIntensity ? "fill-white glow-high" : "fill-[#00AEEF] glow-node"}
+                    style={{ animationDelay: `${node.id * 0.05}s` }}
+                  />
+                ))}
+              </g>
+
               <path 
-                d="M145.2,141.2 L148.5,135.4 L154.2,132.1 L161.5,134.5 L168.2,131.2 L172.5,124.5 L175.4,115.2 L172.1,105.4 L165.2,98.5 L162.1,90.2 L164.5,82.4 L171.2,76.5 L178.5,74.2 L185.4,75.2 L192.5,72.4 L198.2,66.5 L204.5,62.1 L212.4,62.4 L218.5,66.5 L222.4,72.4 L221.5,80.2 L225.4,86.5 L232.1,89.2 L240.2,87.4 L246.5,82.4 L250.2,74.5 L255.4,69.5 L263.1,68.4 L269.2,71.2 L272.5,77.5 L271.2,85.4 L274.5,91.2 L281.2,93.4 L289.5,91.2 L296.2,93.5 L301.5,98.4 L308.2,100.2 L315.4,98.4 L321.2,100.5 L325.2,105.4 L324.5,113.2 L328.4,118.5 L335.2,120.2 L342.1,118.4 L348.5,121.2 L352.4,126.5 L352.1,134.2 L356.5,139.5 L363.2,141.2 L370.5,139.4 L376.2,142.1 L379.5,148.4 L377.2,156.5 L381.5,162.4 L389.2,164.5 L394.5,162.1 L400.2,165.4 L404.5,171.2 L403.2,179.4 L407.5,185.2 L414.2,187.4 L420.5,185.1 L426.2,188.4 L429.5,194.2 L427.2,202.4 L431.5,208.2 L439.2,210.4 L444.5,208.1 L450.2,211.4 L453.5,217.2 L451.2,225.4 L455.5,231.2 L463.2,233.4 L468.5,231.1 L474.2,234.4 L477.5,240.2 L475.2,248.4 L479.5,254.2 L487.2,256.4 L492.5,254.1 L498.2,257.4 L501.5,263.2 L499.2,271.4 L503.5,277.2 L511.2,279.4 L516.5,277.1 L522.2,280.4 L525.5,286.2 L523.2,294.4 L527.5,300.2 L535.2,302.4 L540.5,300.1 L546.2,303.4 L549.5,309.2 L547.2,317.4 L543.1,324.5 L536.2,330.2 L532.4,337.5 L525.2,342.1 L521.4,349.5 L514.2,354.1 L510.4,361.5 L503.2,366.1 L499.4,373.5 L492.2,378.1 L488.4,385.5 L481.2,390.1 L477.4,397.5 L470.2,402.1 L466.4,409.5 L459.2,414.1 L455.4,421.5 L448.2,426.1 L444.4,433.5 L437.2,438.1 L433.4,445.5 L426.2,450.1 L422.4,457.5 L415.2,462.1 L411.4,469.5 L404.2,474.1 L400.4,481.5 L393.2,486.1 L389.4,493.5 L382.2,498.1 L378.4,505.5 L371.2,510.1 L365.4,514.5 L358.2,512.1 L352.4,506.5 L347.2,501.2 L343.4,493.5 L339.2,486.1 L335.4,479.5 L331.2,472.1 L327.4,465.5 L323.2,458.1 L319.4,451.5 L315.2,444.1 L311.4,437.5 L307.2,430.1 L303.4,423.5 L299.2,416.1 L295.4,409.5 L291.2,402.1 L287.4,395.5 L283.2,388.1 L279.4,381.5 L275.2,374.1 L271.4,367.5 L267.2,360.1 L263.4,353.5 L259.2,346.1 L255.4,339.5 L251.2,332.1 L247.4,325.5 L243.2,318.1 L239.4,311.5 L235.2,304.1 L231.4,297.5 L227.2,290.1 L223.4,283.5 L219.2,276.1 L215.4,269.5 L211.2,262.1 L207.4,255.5 L203.2,248.1 L199.4,241.5 L195.2,234.1 L191.4,227.5 L187.2,220.1 L183.4,213.5 L179.2,206.1 L175.4,199.5 L171.2,192.1 L167.4,185.5 L163.2,178.1 L159.4,171.5 L155.2,164.1 L151.4,157.5 L147.2,150.1 Z" 
-                className="stroke-cyan-400 fill-cyan-950/20 stroke-[1.5] stroke-linejoin-round"
+                d={BRASIL_SVG_PATH} 
+                className="stroke-[#00AEEF] fill-none contorno-glow stroke-linejoin-round"
               />
 
-              {/* NETWORK PLEXUS - MALHA INTERNA COMPLETA */}
-              <g className="stroke-cyan-500/40 stroke-[0.8]">
-                {/* Linhas de conexão cruzadas idênticas à foto */}
-                <line x1="171" y1="142" x2="232" y2="120" /><line x1="171" y1="142" x2="167" y2="220" />
-                <line x1="232" y1="120" x2="167" y2="220" /><line x1="232" y1="120" x2="315" y2="130" />
-                <line x1="167" y1="220" x2="251" y2="215" /><line x1="315" y1="130" x2="251" y2="215" />
-                <line x1="167" y1="220" x2="199" y2="295" /><line x1="251" y1="215" x2="199" y2="295" />
-                <line x1="251" y1="215" x2="307" y2="290" /><line x1="315" y1="130" x2="307" y2="290" />
-                <line x1="199" y1="295" x2="307" y2="290" /><line x1="307" y1="290" x2="283" y2="374" />
-                <line x1="315" y1="130" x2="394" y2="145" /><line x1="394" y1="145" x2="466" y2="211" />
-                <line x1="394" y1="145" x2="422" y2="265" /><line x1="466" y1="211" x2="422" y2="265" />
-                <line x1="307" y1="290" x2="422" y2="265" /><line x1="422" y1="265" x2="389" y2="346" />
-                <line x1="307" y1="290" x2="389" y2="346" /><line x1="283" y1="374" x2="389" y2="346" />
-                <line x1="283" y1="374" x2="331" y2="438" /><line x1="389" y1="346" x2="331" y2="438" />
-                <line x1="331" y1="438" x2="311" y2="493" /><line x1="283" y1="374" x2="311" y2="493" />
-              </g>
-
-              {/* NÓS DE CONEXÃO E FLASHES DE LUZ NEON */}
-              <g className="fill-white">
-                <circle cx="171" cy="142" r="4.5" className="fill-cyan-300 drop-shadow-[0_0_8px_#22d3ee]" />
-                <circle cx="232" cy="120" r="4" className="fill-cyan-300 drop-shadow-[0_0_6px_#22d3ee]" />
-                <circle cx="167" cy="220" r="4.5" className="fill-cyan-300 drop-shadow-[0_0_8px_#22d3ee]" />
-                <circle cx="251" cy="215" r="4.5" className="fill-cyan-300 drop-shadow-[0_0_8px_#22d3ee]" />
-                <circle cx="315" cy="130" r="4" className="fill-cyan-300 drop-shadow-[0_0_6px_#22d3ee]" />
-                <circle cx="199" cy="295" r="4" className="fill-cyan-300 drop-shadow-[0_0_6px_#22d3ee]" />
-                <circle cx="394" cy="145" r="4.5" className="fill-cyan-300 drop-shadow-[0_0_8px_#22d3ee]" />
-                <circle cx="466" cy="211" r="5.5" className="fill-cyan-300 drop-shadow-[0_0_12px_#22d3ee] animate-pulse" />
-                <circle cx="422" cy="265" r="4.5" className="fill-cyan-300 drop-shadow-[0_0_8px_#22d3ee]" />
-                <circle cx="350" cy="320" r="5" className="fill-cyan-300 drop-shadow-[0_0_8px_#22d3ee]" />
-                
-                {/* HUB CENTRAL DE OPERAÇÕES BRASÍLIA */}
-                <circle cx="307" cy="290" r="7.5" className="fill-white drop-shadow-[0_0_16px_#fff]" />
-                <circle cx="307" cy="290" r="3" className="fill-cyan-400" />
-                
-                <circle cx="283" cy="374" r="4" className="fill-cyan-300 drop-shadow-[0_0_6px_#22d3ee]" />
-                <circle cx="389" cy="346" r="5" className="fill-cyan-300 drop-shadow-[0_0_8px_#22d3ee]" />
-                <circle cx="331" cy="438" r="4.5" className="fill-cyan-300 drop-shadow-[0_0_8px_#22d3ee]" />
-                <circle cx="311" cy="493" r="4" className="fill-cyan-300 drop-shadow-[0_0_6px_#22d3ee]" />
-              </g>
+              {activePinNode && (
+                <g transform={`translate(${activePinNode.x}, ${activePinNode.y})`}>
+                  <circle r="14" className="fill-none stroke-[#00AEEF]/40 stroke-[1.5] animate-ping" />
+                  <circle r="7" className="fill-[#00AEEF]/30 filter blur-sm" />
+                  <path 
+                    d="M0,-11 C-3.5,-11 -5.5,-8.5 -5.5,-5.5 C-5.5,-1.5 0,0 0,0 C0,0 5.5,-1.5 5.5,-5.5 C5.5,-8.5 3.5,-11 0,-11 Z" 
+                    className="fill-[#061525] stroke-[#00AEEF] stroke-[1.5] drop-shadow-[0_0_6px_#00AEEF]"
+                  />
+                  <circle cy="-5.5" r="2" className="fill-white" />
+                </g>
+              )}
             </svg>
-          </div>
-
-          {/* Pin de localização principal */}
-          <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full border border-accent/40 bg-slate-950/90 backdrop-blur-md shadow-[0_0_35px_rgba(249,115,22,0.4)] animate-bounce">
-            <MapPin className="h-7 w-7 text-accent" />
           </div>
         </div>
       </div>
