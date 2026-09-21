@@ -1,38 +1,41 @@
-import motorola from "@/assets/brands-official/motorola-solutions.svg.asset.json";
-import claro from "@/assets/brands-official/claro.webp.asset.json";
-import axis from "@/assets/brands-official/axis-communications.png.asset.json";
-import { SectionHeading } from "./Section";
+import React from "react";
+import { Section, SectionHeading } from "./Section";
 
-const brands = [
-  { name: "Motorola Solutions", src: motorola.url, size: "max-h-12 max-w-64" },
-  { name: "Zebra Technologies", src: "/zebra-logo.png" },
-  { name: "Claro", src: claro.url, size: "max-h-24 max-w-28" },
-  { name: "Axis Communications", src: axis.url, size: "max-h-20 max-w-56" },
-  { name: "Dana Cosméticos", src: "/danacosmeticos-logo.png" },
-  { name: "SUEZ Water Technologies & Solutions", src: "/suez-logo.png" },
+// Importações originais mantidas para as marcas automáticas se houver
+import motorola from "@/assets/brands-official/motorola-solutions.json";
+import axis from "@/assets/brands-official/axis-communications.json";
+
+const marcasClientes = [
+  { name: "Motorola Solutions", src: motorola.url || "", size: "max-h-12 max-w-64" },
+  { name: "Zebra Technologies", src: "/zebra-logo.png", size: "max-h-12 max-w-64" },
+  { name: "Axis Communications", src: axis.url || "", size: "max-h-20 max-w-56" },
+  { name: "Dana Cosméticos", src: "/danacosmeticos-logo.png", size: "max-h-12 max-w-64" },
+  { name: "RB Alimentos", src: "/rbalimentos-logo.png", size: "max-h-14 max-w-64" },
+  { name: "Cambium Networks", src: "/cambium-logo.png", size: "max-h-14 max-w-64" },
+  { name: "Nokia Siemens Networks", src: "/nokia-logo.png", size: "max-h-16 max-w-64" },
 ];
 
 export function Experiencia() {
   return (
-    <section id="experiencia" className="bg-card py-20 lg:py-24">
+    <Section id="experiencia" tone="surface">
       <div className="container-fc">
-        <SectionHeading eyebrow="Nossa experiência" title="Experiência construída ao longo da nossa trajetória" description="Ao longo de sua história, a FC participou de projetos e operações para empresas nacionais e multinacionais." />
-        <ul className="mt-12 grid gap-x-12 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
-          {brands.map((brand) => (
-            <li key={brand.name} className="flex min-h-40 items-center justify-center px-6 py-8 text-center">
-              {brand.src ? (
-                <img src={brand.src} alt={brand.name} className={`h-auto w-auto object-contain ${brand.size}`} />
-              ) : (
-                <div className="max-w-56" aria-label={`${brand.name}: arquivo oficial pendente`}>
-                  <span className="block font-display text-base font-semibold text-foreground">{brand.name}</span>
-                  <span className="mt-2 block text-xs text-muted-foreground">Arquivo oficial pendente</span>
-                </div>
-              )}
-            </li>
+        <SectionHeading 
+          eyebrow="Nossa trajetória" 
+          title="Experiência construída ao longo da nossa trajetória" 
+          description="Conectando grandes marcas e consolidando parcerias de longo prazo através de uma gestão logística de excelência." 
+        />
+        <div className="mt-12 grid grid-cols-2 gap-8 items-center justify-items-center md:grid-cols-4 lg:grid-cols-7 opacity-75">
+          {marcasClientes.map((marca) => (
+            <div key={marca.name} className="flex items-center justify-center p-4 bg-white/5 rounded-lg w-full h-24 border border-white/5 shadow-sm">
+              <img 
+                src={marca.src} 
+                alt={marca.name} 
+                className={`${marca.size} object-contain filter brightness-0 invert`} 
+              />
+            </div>
           ))}
-        </ul>
-        <p className="mt-6 border-t border-border pt-5 text-xs leading-relaxed text-muted-foreground">Empresas atendidas ao longo da trajetória da FC. A apresentação das marcas não implica vínculo comercial atual.</p>
+        </div>
       </div>
-    </section>
+    </Section>
   );
 }
