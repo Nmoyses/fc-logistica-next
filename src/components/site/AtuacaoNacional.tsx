@@ -16,10 +16,19 @@ interface Connection {
   to: Node;
 }
 
+function createSeededRandom(seed: number) {
+  let value = seed;
+  return () => {
+    value = (value * 1664525 + 1013904223) >>> 0;
+    return value / 4294967296;
+  };
+}
+
 export function AtuacaoNacional() {
   const [pinNode, setPinNode] = useState<Node | null>(null);
 
   const nodes = useMemo(() => {
+    const random = createSeededRandom(2026);
     const generatedNodes: Node[] = [];
     const totalNodes = 110;
 
@@ -38,19 +47,19 @@ export function AtuacaoNacional() {
       let x = 0;
       let y = 0;
 
-      if (Math.random() > 0.35) {
-        const hub = strategicHubs[Math.floor(Math.random() * strategicHubs.length)];
-        const angle = Math.random() * Math.PI * 2;
-        const radius = Math.random() * hub.r;
+      if (random() > 0.35) {
+        const hub = strategicHubs[Math.floor(random() * strategicHubs.length)];
+        const angle = random() * Math.PI * 2;
+        const radius = random() * hub.r;
         x = hub.x + Math.cos(angle) * radius;
         y = hub.y + Math.sin(angle) * radius;
       } else {
-        x = minX + Math.random() * (maxX - minX);
-        y = minY + Math.random() * (maxY - minY);
+        x = minX + random() * (maxX - minX);
+        y = minY + random() * (maxY - minY);
       }
 
       const isStrategic = i < 7;
-      const size = isStrategic ? 4.5 : 1.2 + Math.random() * 2;
+      const size = isStrategic ? 4.5 : 1.2 + random() * 2;
 
       generatedNodes.push({
         id: i,
@@ -65,6 +74,7 @@ export function AtuacaoNacional() {
   }, []);
 
   const connections = useMemo(() => {
+    const random = createSeededRandom(4204);
     const generatedConnections: Connection[] = [];
     const maxLinkDistance = 45;
 
@@ -80,7 +90,7 @@ export function AtuacaoNacional() {
         .filter((item) => item.distance < maxLinkDistance)
         .sort((a, b) => a.distance - b.distance);
 
-      const maxConnections = 2 + Math.floor(Math.random() * 3);
+      const maxConnections = 2 + Math.floor(random() * 3);
       const chosenTargets = nearTargets.slice(0, maxConnections);
 
       chosenTargets.forEach((target) => {
