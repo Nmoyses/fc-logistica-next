@@ -65,6 +65,6 @@ export function AtuacaoNacional() {
           )}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }
