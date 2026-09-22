@@ -44,6 +44,6 @@ export function Sustentabilidade() {
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }
