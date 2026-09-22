@@ -1,57 +1,104 @@
 import React from "react";
-import { Cpu, Network } from "lucide-react";
-import { Section, SectionHeading } from "./Section";
-import { BrandLogo } from "./BrandLogo";
 
-// Importa as duas logos oficiais da sua pasta assets
-import cargoLogoImg from "@/assets/integracargo-logo.png";
-import carbonLogoImg from "@/assets/integracarbon-logo.png";
-
-const marcas = [
-  { nome: "FC Supply Tech Solutions", texto: "Gestão 4PL, Supply Chain, pessoas, processos e coordenação do ecossistema logístico.", Icon: Network, central: true, type: "fc" },
-  { nome: "Integra Cargo", texto: "Software, integração, automação, IA e inteligência aplicada à logística.", Icon: Cpu, central: false, type: "cargo" },
-  { nome: "Integra Carbon", texto: "Inventário de emissões, descarbonização, certificação e soluções relacionadas ao mercado de carbono.", Icon: Cpu, central: false, type: "carbon" },
+const marcasEcossistema = [
+  {
+    title: "FC Supply Technologies Solutions",
+    tag: "Tecnologia & Gestão 4PL",
+    description:
+      "Plataforma completa de soluções tecnológicas integradas para otimização e controlo ponta a ponta da cadeia de abastecimento.",
+    logo: "/assets/fc-supply-tech-logo.png", // Ajuste o caminho da imagem se necessário
+    bgColor: "bg-[#0A192F] text-white", // Azul Escuro
+    tagColor: "bg-blue-900/50 text-blue-200 border border-blue-700",
+    textColor: "text-slate-300",
+    buttonColor: "text-blue-400 hover:text-blue-300",
+    link: "#fc-supply",
+  },
+  {
+    title: "Integracard",
+    tag: "Soluções Financeiras",
+    description:
+      "Sistema de gestão financeira e cartão corporativo integrado para controlo de despesas e operações logísticas.",
+    logo: "/assets/integracard-logo.png", // Adicione a logo correspondente em public/assets
+    bgColor: "bg-orange-600 text-white", // Laranja
+    tagColor: "bg-orange-700/60 text-orange-100 border border-orange-500",
+    textColor: "text-orange-50",
+    buttonColor: "text-white font-bold underline hover:text-orange-100",
+    link: "#integracard",
+  },
+  {
+    title: "Integracarbon",
+    tag: "Sustentabilidade & ESG",
+    description:
+      "Plataforma dedicada à medição, gestão de emissões e estratégias de descarbonização para a cadeia logística.",
+    logo: "/assets/integracarbon-logo.png", // Adicione a logo correspondente em public/assets
+    bgColor: "bg-emerald-700 text-white", // Verde
+    tagColor: "bg-emerald-800/60 text-emerald-100 border border-emerald-600",
+    textColor: "text-emerald-50",
+    buttonColor: "text-emerald-200 hover:text-white font-bold underline",
+    link: "#integracarbon",
+  },
 ];
 
 export function ArquiteturaMarcas() {
   return (
-    <section id="ecossistema" className="py-20 lg:py-24">
-      <div className="container-fc">
-        <SectionHeading 
-          eyebrow="ARQUITETURA DAS MARCAS" 
-          title="Um ecossistema com papéis claros" 
-          description="A FC permanece no centro da Gestão 4PL e do Supply Chain, conectada a frentes especializadas em tecnologia e sustentabilidade." 
-        />
-        <div className="mt-12 grid gap-4 lg:grid-cols-3">
-          {marcas.map(({ nome, texto, central, type }) => (
-            <article 
-              key={nome} 
-              className={
-                central 
-                  ? "rounded-lg bg-primary p-8 text-primary-foreground transform lg:scale-105 shadow-xl z-10" 
-                  : type === "cargo" 
-                    ? "rounded-lg bg-orange-600 p-8 text-white transform lg:scale-105 shadow-xl z-10" 
-                    : type === "carbon"
-                      ? "rounded-lg bg-emerald-600 p-8 text-white transform lg:scale-105 shadow-xl z-10"
-                      : "card-fc p-8"
-              }
+    <section id="ecossistema" className="py-16 bg-slate-50">
+      <div className="container mx-auto px-4">
+        <div className="mb-10">
+          <span className="text-orange-600 font-bold text-xs uppercase tracking-wider">
+            ECOSSISTEMA DE SOLUÇÕES
+          </span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-3">
+            Arquitetura de Marcas
+          </h2>
+          <p className="text-slate-600 max-w-2xl text-base">
+            Conheça os pilares e unidades de negócios que compõem o nosso ecossistema de inteligência logística e tecnologia.
+          </p>
+        </div>
+
+        {/* Grade de Cards com Cores Personalizadas */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {marcasEcossistema.map((marca, index) => (
+            <div
+              key={index}
+              className={`${marca.bgColor} rounded-xl p-6 shadow-lg hover:scale-[1.02] transition-all duration-200 flex flex-col justify-between`}
             >
-              {central ? (
-                <BrandLogo className="h-20 w-20 rounded-md" />
-              ) : type === "cargo" ? (
-                <img src={cargoLogoImg} alt={nome} className="h-10 w-auto object-contain mb-4" />
-              ) : type === "carbon" ? (
-                <img src={carbonLogoImg} alt={nome} className="h-10 w-auto object-contain mb-4" />
-              ) : null}
-              
-              <h3 className="mt-4 font-display text-xl font-semibold">{nome}</h3>
-              <p className={(central || type === "cargo" || type === "carbon") ? "mt-4 text-sm leading-relaxed text-white/95" : "mt-4 text-sm leading-relaxed text-muted-foreground"}>
-                {texto}
-              </p>
-            </article>
+              <div>
+                {/* Logo da Marca */}
+                <div className="h-16 flex items-center mb-4 bg-white/10 rounded-lg p-3 backdrop-blur-sm">
+                  <img
+                    src={marca.logo}
+                    alt={marca.title}
+                    className="max-h-12 w-auto object-contain"
+                  />
+                </div>
+
+                <span
+                  className={`inline-block text-xs font-semibold px-2.5 py-1 rounded mb-4 ${marca.tagColor}`}
+                >
+                  {marca.tag}
+                </span>
+
+                <h3 className="text-xl font-bold mb-3">{marca.title}</h3>
+
+                <p className={`text-sm leading-relaxed mb-6 ${marca.textColor}`}>
+                  {marca.description}
+                </p>
+              </div>
+
+              <div>
+                <a
+                  href={marca.link}
+                  className={`text-sm inline-flex items-center gap-1 transition-colors ${marca.buttonColor}`}
+                >
+                  Saiba mais &rarr;
+                </a>
+              </div>
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
 }
+
+export default ArquiteturaMarcas;

@@ -1,41 +1,56 @@
 import React from "react";
-import { Section, SectionHeading } from "./Section";
 
-// Importações originais mantidas para as marcas automáticas se houver
-import motorola from "@/assets/brands-official/motorola-solutions.json";
-import axis from "@/assets/brands-official/axis-communications.json";
-
-const marcasClientes = [
-  { name: "Motorola Solutions", src: motorola.url || "", size: "max-h-12 max-w-64" },
-  { name: "Zebra Technologies", src: "/zebra-logo.png", size: "max-h-12 max-w-64" },
-  { name: "Axis Communications", src: axis.url || "", size: "max-h-20 max-w-56" },
-  { name: "Dana Cosméticos", src: "/danacosmeticos-logo.png", size: "max-h-12 max-w-64" },
-  { name: "RB Alimentos", src: "/rbalimentos-logo.png", size: "max-h-14 max-w-64" },
-  { name: "Cambium Networks", src: "/cambium-logo.png", size: "max-h-14 max-w-64" },
-  { name: "Nokia Siemens Networks", src: "/nokia-logo.png", size: "max-h-16 max-w-64" },
+// Exemplo da estrutura de dados das logos/parceiros
+const logosData = [
+  { name: "Motorola Solutions", src: "/assets/motorola-solutions.png" },
+  { name: "Claro", src: "/assets/claro.webp" },
+  { name: "Axis Communications", src: "/assets/axis-communications.png" },
+  { name: "Suez", src: "/assets/suez-logo.png" },
+  { name: "Zebra", src: "/assets/zebra-logo.png" },
+  { name: "Cambium", src: "/assets/cambium-logo.png" },
 ];
 
 export function Experiencia() {
   return (
-    <Section id="experiencia" tone="surface">
-      <div className="container-fc">
-        <SectionHeading 
-          eyebrow="Nossa trajetória" 
-          title="Experiência construída ao longo da nossa trajetória" 
-          description="Conectando grandes marcas e consolidando parcerias de longo prazo através de uma gestão logística de excelência." 
-        />
-        <div className="mt-12 grid grid-cols-2 gap-8 items-center justify-items-center md:grid-cols-4 lg:grid-cols-7 opacity-75">
-          {marcasClientes.map((marca) => (
-            <div key={marca.name} className="flex items-center justify-center p-4 bg-white/5 rounded-lg w-full h-24 border border-white/5 shadow-sm">
-              <img 
-                src={marca.src} 
-                alt={marca.name} 
-                className={`${marca.size} object-contain filter brightness-0 invert`} 
+    <section className="py-16 bg-slate-50">
+      <div className="container mx-auto px-4">
+        {/* Cabeçalho da Seção */}
+        <div className="mb-10">
+          <span className="text-orange-600 font-bold text-xs uppercase tracking-wider">
+            NOSSA TRAJETÓRIA
+          </span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-3">
+            Experiência construída ao longo da nossa trajetória
+          </h2>
+          <p className="text-slate-600 max-w-2xl text-base">
+            Conectando grandes marcas e consolidando parcerias de longo prazo através de uma gestão logística de excelência.
+          </p>
+        </div>
+
+        {/* Grade de Logos Corrigida */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          {logosData.map((logo, index) => (
+            <div
+              key={index}
+              className="bg-white border border-slate-200 rounded-lg p-4 flex items-center justify-center h-24 shadow-sm hover:shadow-md transition-all duration-200"
+            >
+              <img
+                src={logo.src}
+                alt={logo.name}
+                /*
+                  Ajustes cruciais de visibilidade:
+                  - Removemos 'brightness-0' ou 'invert' que deixavam a imagem branca.
+                  - Usamos 'object-contain' para manter a proporção da logo.
+                  - Opacidade padrão ajustada para 80%, subindo para 100% no hover.
+                */
+                className="max-h-12 w-auto object-contain transition-opacity duration-200 opacity-80 hover:opacity-100"
               />
             </div>
           ))}
         </div>
       </div>
-    </Section>
+    </section>
   );
 }
+
+export default Experiencia;
