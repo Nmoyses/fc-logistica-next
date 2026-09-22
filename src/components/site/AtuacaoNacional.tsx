@@ -49,6 +49,7 @@ export function AtuacaoNacional() {
 
       if (random() > 0.35) {
         const hub = strategicHubs[Math.floor(random() * strategicHubs.length)];
+        if (!hub) continue;
         const angle = random() * Math.PI * 2;
         const radius = random() * hub.r;
         x = hub.x + Math.cos(angle) * radius;
@@ -80,6 +81,7 @@ export function AtuacaoNacional() {
 
     for (let i = 0; i < nodes.length; i++) {
       const current = nodes[i];
+      if (!current) continue;
       
       const nearTargets = nodes
         .filter((n) => n.id !== current.id)
@@ -106,7 +108,7 @@ export function AtuacaoNacional() {
   useEffect(() => {
     if (nodes.length > 0) {
       const randomNode = nodes[Math.floor(Math.random() * nodes.length)];
-      setPinNode(randomNode);
+      if (randomNode) setPinNode(randomNode);
     }
   }, [nodes]);
 
