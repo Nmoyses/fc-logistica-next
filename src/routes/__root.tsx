@@ -147,5 +147,5 @@ function RootComponent() {
         </svg>
       </a>
     </QueryClientProvider>
-
+  );
 }
