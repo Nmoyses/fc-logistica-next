@@ -2,8 +2,8 @@ import React from "react";
 import { Section, SectionHeading } from "./Section";
 
 // Importações originais mantidas para as marcas automáticas se houver
-import motorola from "@/assets/brands-official/motorola-solutions.json";
-import axis from "@/assets/brands-official/axis-communications.json";
+import motorola from "@/assets/brands-official/motorola-solutions.svg.asset.json";
+import axis from "@/assets/brands-official/axis-communications.png.asset.json";
 
 const marcasClientes = [
   { name: "Motorola Solutions", src: motorola.url || "", size: "max-h-12 max-w-64" },

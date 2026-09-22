@@ -22,7 +22,7 @@ export function AtuacaoNacional() {
   useEffect(() => {
     if (logisticNodes.length > 0) {
       const randomPoint = logisticNodes[Math.floor(Math.random() * logisticNodes.length)];
-      setPinPosition(randomPoint);
+      if (randomPoint) setPinPosition(randomPoint);
     }
   }, [logisticNodes]);
 
