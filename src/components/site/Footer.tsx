@@ -1,4 +1,4 @@
-import { siteConfig } from "@/data/site";
+import { BrandLogo } from "./BrandLogo";
 
 export function Footer() {
   return (
@@ -6,12 +6,8 @@ export function Footer() {
       <div className="container-fc grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Coluna 1: Marca e Informações */}
         <div>
-          <div className="flex items-center gap-3 mb-4">
-            <img 
-              src="/logo.png" 
-              alt="FC Supply Tech Solutions" 
-              className="h-10 w-auto" 
-            />
+          <div className="mb-4">
+            <BrandLogo className="h-10 w-auto" />
           </div>
           <h3 className="text-white font-bold text-base mb-1">
             FC Supply Tech Solutions
