@@ -1,41 +1,75 @@
-import {
-  Apple,
-  Cpu,
-  HeartPulse,
-  Laptop,
-  Pill,
-  ShieldCheck,
-  Smartphone,
-  Sparkles,
+import { 
+  ShieldCheck, 
+  Cpu, 
+  Smartphone, 
+  HeartPulse, 
+  ShoppingBag, 
+  Sun, 
+  Sprout 
 } from "lucide-react";
-import { Section, SectionHeading } from "./Section";
 import { segmentos } from "@/data/site";
 
-const icones = [ShieldCheck, Cpu, Laptop, Smartphone, HeartPulse, Apple, Pill, Sparkles];
+const iconesMap: Record<string, any> = {
+  "Transporte de sensíveis": ShieldCheck,
+  "Eletroeletrônicos": Cpu,
+  "Tecnologia e telecom": Smartphone,
+  "Saúde e farmacêutico": HeartPulse,
+  "Alimentos e cosméticos": ShoppingBag,
+  "Energia Solar": Sun,
+  "Agronegócio": Sprout,
+};
 
 export function Segmentos() {
   return (
-    <Section id="segmentos" tone="surface">
-      <SectionHeading
-        eyebrow="Segmentos de atuação"
-        title="Nossa expertise vem da expansão e do planejamento de diferentes mercados logísticos, com equipes dedicadas às exigências de cada tipo de carga."
-        description="A FC Supply Tech Solutions atua em diversos segmentos, oferecendo soluções logísticas especializadas para atender às necessidades específicas de cada setor."
-      />
+    <section id="segmentos" className="bg-slate-50 py-16 lg:py-20">
+      <div className="container-fc">
+        <div className="mb-10 text-left">
+          <span className="text-xs font-bold uppercase tracking-widest text-orange-500">
+            SEGMENTOS DE ATUAÇÃO
+          </span>
+          <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
+            Experiência em cadeias que não admitem improviso
+          </h2>
+        </div>
 
-       <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {segmentos.map((seg, i) => {
-          const Icon = icones[i % icones.length] ?? ShieldCheck;
-          return (
-             <article key={seg.titulo} className={i === 0 || i === 4 ? "group rounded-lg bg-primary p-7 text-primary-foreground shadow-[var(--shadow-card)] transition-transform hover:-translate-y-1 lg:row-span-2" : "group rounded-lg border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:border-accent/40"}>
-              <Icon className="h-6 w-6 text-accent" aria-hidden="true" />
-              <h3 className="mt-5 font-display text-base font-semibold leading-snug">
-                {seg.titulo}
-              </h3>
-               <p className={i === 0 || i === 4 ? "mt-2.5 text-sm leading-relaxed text-ink-muted" : "mt-2.5 text-sm leading-relaxed text-muted-foreground"}>{seg.texto}</p>
-            </article>
-          );
-        })}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {segmentos.map((segmento) => {
+            const Icon = iconesMap[segmento.titulo] || ShieldCheck;
+            const isHighlight =
+              segmento.titulo === "Transporte de sensíveis" ||
+              segmento.titulo === "Alimentos e cosméticos";
+
+            return (
+              <div
+                key={segmento.titulo}
+                className={`flex flex-col justify-between rounded-xl p-6 transition-all shadow-sm ${
+                  isHighlight
+                    ? "bg-[#032B56] text-white"
+                    : "bg-white text-slate-800 border border-slate-200"
+                }`}
+              >
+                <div>
+                  <div className="mb-4">
+                    <Icon
+                      className={`w-6 h-6 ${
+                        isHighlight ? "text-orange-400" : "text-orange-500"
+                      }`}
+                    />
+                  </div>
+                  <h3 className="text-lg font-bold mb-2">{segmento.titulo}</h3>
+                  <p
+                    className={`text-sm leading-relaxed ${
+                      isHighlight ? "text-slate-300" : "text-slate-600"
+                    }`}
+                  >
+                    {segmento.texto}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }
