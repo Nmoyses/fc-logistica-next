@@ -1,7 +1,69 @@
-import { contato, navItems } from "@/data/site";
-import { BrandLogo } from "./BrandLogo";
+import { siteConfig } from "@/data/site";
 
 export function Footer() {
-  const ano = new Date().getFullYear();
-  return <footer className="surface-ink"><div className="container-fc py-14"><div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_0.9fr]"><div><BrandLogo className="h-24 w-24 rounded-md" /><p className="mt-5 font-display text-lg font-semibold text-ink-foreground">FC Supply Tech Solutions</p><p className="mt-2 max-w-sm text-sm leading-relaxed text-ink-muted">FINANCIAL &amp; CONTROL SUPPLY TECH SOLUTIONS LTDA.</p><p className="mt-4 text-xs font-semibold uppercase text-accent">4PL • Supply Chain • Technology</p><p className="mt-2 text-xs text-ink-muted">Desde 2006.</p></div><nav aria-label="Navegação do rodapé"><h3 className="text-xs font-semibold uppercase text-ink-foreground">Navegação</h3><ul className="mt-5 space-y-2.5">{navItems.map((item) => <li key={item.href}><a href={item.href} className="text-sm text-ink-muted hover:text-accent">{item.label}</a></li>)}</ul></nav><div><h3 className="text-xs font-semibold uppercase text-ink-foreground">Ecossistema e contato</h3><ul className="mt-5 space-y-3 text-sm text-ink-muted"><li><a href="#inicio" className="hover:text-accent">FC Supply Tech Solutions</a></li><li title="Endereço oficial ainda não fornecido">Integra Cargo — link em configuração</li><li title="Endereço oficial ainda não fornecido">Integra Carbon — link em configuração</li><li><a href={contato.telefoneHref} className="hover:text-accent">{contato.telefone}</a></li><li><a href={`mailto:${contato.email}`} className="break-all hover:text-accent">{contato.email}</a></li></ul></div></div><div className="mt-12 flex flex-col gap-3 border-t border-ink-border pt-7 sm:flex-row sm:items-center sm:justify-between"><p className="text-xs text-ink-muted">© {ano} FC Supply Tech Solutions. Todos os direitos reservados.</p><p className="text-xs text-ink-muted">Nova identidade em ambiente de homologação.</p></div></div></footer>;
+  return (
+    <footer className="bg-[#010D1A] py-12 text-slate-400 text-sm border-t border-slate-800">
+      <div className="container-fc grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Coluna 1: Marca e Informações */}
+        <div>
+          <div className="flex items-center gap-3 mb-4">
+            <img 
+              src="/logo.png" 
+              alt="FC Supply Tech Solutions" 
+              className="h-10 w-auto" 
+            />
+          </div>
+          <h3 className="text-white font-bold text-base mb-1">
+            FC Supply Tech Solutions
+          </h3>
+          <p className="text-xs text-slate-400 mb-3">
+            FINANCIAL & CONTROL SUPPLY TECH SOLUTIONS LTDA.
+          </p>
+          <p className="text-xs text-orange-500 font-semibold tracking-wider mb-2">
+            4PL • SUPPLY CHAIN • TECHNOLOGY
+          </p>
+          <p className="text-xs text-slate-500">Desde 2006.</p>
+        </div>
+
+        {/* Coluna 2: Navegação */}
+        <div>
+          <h4 className="text-xs font-semibold uppercase tracking-widest text-white mb-4">
+            Navegação
+          </h4>
+          <ul className="space-y-2.5 text-xs">
+            <li><a href="#inicio" className="hover:text-orange-500 transition-colors">Início</a></li>
+            <li><a href="#quem-somos" className="hover:text-orange-500 transition-colors">Quem Somos</a></li>
+            <li><a href="#gestao-4pl" className="hover:text-orange-500 transition-colors">Gestão 4PL</a></li>
+            <li><a href="#solucoes" className="hover:text-orange-500 transition-colors">Soluções</a></li>
+            <li><a href="#tecnologia" className="hover:text-orange-500 transition-colors">Tecnologia</a></li>
+            <li><a href="#experiencia" className="hover:text-orange-500 transition-colors">Experiência</a></li>
+            <li><a href="#contato" className="hover:text-orange-500 transition-colors">Contato</a></li>
+          </ul>
+        </div>
+
+        {/* Coluna 3: Ecossistema e Contato */}
+        <div>
+          <h4 className="text-xs font-semibold uppercase tracking-widest text-white mb-4">
+            Ecossistema e Contato
+          </h4>
+          <ul className="space-y-2.5 text-xs">
+            <li className="text-slate-300 font-medium">FC Supply Tech Solutions</li>
+            <li>
+              <a 
+                href="https://www.integracargo.com.br" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-orange-500 transition-colors underline decoration-orange-500/40"
+              >
+                Integra Cargo
+              </a>
+            </li>
+            <li className="text-slate-500">Integra Carbon — link em configuração</li>
+            <li className="pt-2 text-slate-300">+55 15 99253 6034</li>
+            <li className="text-slate-300">daniel.ramos@fclogistica.com</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  );
 }
