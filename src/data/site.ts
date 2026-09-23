@@ -1,7 +1,7 @@
 export const contato = {
-  telefone: "+55 19 97405 5550",
-  telefoneHref: "tel:+5519974055550",
-  whatsapp: "https://wa.me/5519974055550",
+  telefone: "+55 15 99253 6034",
+  telefoneHref: "tel:+5515992536034",
+  whatsapp: "https://wa.me/15992536034",
   email: "daniel.ramos@fclogistica.com",
   endereco: "Rua Joaquim Olavo de Carvalho, 29 — Centro, Porto Feliz — SP",
   atendimento: "Segunda a sexta, das 8h às 18h",
