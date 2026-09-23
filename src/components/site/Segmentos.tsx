@@ -28,7 +28,7 @@ export function Segmentos() {
             SEGMENTOS DE ATUAÇÃO
           </span>
           <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
-            Soluções sob medida para operações de alta complexidade
+            Soluções sob medida para operações de alta complexidade.
           </h2>
           <p className="mt-3 text-base text-slate-600 max-w-2xl">
             Estrutura e planejamento logístico alinhados às demandas específicas da sua operação.
