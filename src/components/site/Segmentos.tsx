@@ -28,7 +28,7 @@ export function Segmentos() {
             SEGMENTOS DE ATUAÇÃO
           </span>
           <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
-            Experiência em cadeias que não admitem improviso
+            Soluções sob medida para operações de alta complexidade
           </h2>
         </div>
 
