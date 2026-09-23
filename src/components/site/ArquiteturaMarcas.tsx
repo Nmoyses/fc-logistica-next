@@ -36,3 +36,38 @@ const marcasEcossistema = [
     link: "#integracarbon",
   },
 ];
+
+export function ArquiteturaMarcas() {
+  return (
+    <section id="ecossistema" className="bg-surface py-16">
+      <div className="container-fc">
+        <div className="mx-auto mb-10 max-w-3xl text-center">
+          <span className="eyebrow">Arquitetura das marcas</span>
+          <h2 className="mt-4 text-3xl font-semibold text-foreground sm:text-4xl">
+            Um ecossistema com papéis claros
+          </h2>
+          <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            A FC permanece no centro da Gestão 4PL e do Supply Chain, conectada a frentes especializadas em tecnologia e sustentabilidade.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {marcasEcossistema.map((marca) => (
+            <article key={marca.title} className={`flex flex-col justify-between rounded-lg p-6 shadow-lg transition-transform hover:-translate-y-1 ${marca.bgColor}`}>
+              <div>
+                <div className="mb-6 flex h-14 items-center">
+                  <img src={marca.logo} alt={marca.title} className="h-10 max-w-full object-contain" />
+                </div>
+                <span className={`mb-4 inline-block rounded-md px-3 py-1 text-xs font-semibold ${marca.tagColor}`}>
+                  {marca.tag}
+                </span>
+                <h3 className="mb-3 text-xl font-bold">{marca.title}</h3>
+                <p className={`text-sm leading-relaxed ${marca.textColor}`}>{marca.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
