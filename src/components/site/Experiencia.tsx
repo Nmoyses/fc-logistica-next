@@ -1,5 +1,5 @@
-import motorola from "@/assets/brands-official/motorola-solutions.svg.asset.json";
-import axis from "@/assets/brands-official/axis-communications.png.asset.json";
+import motorola from "@assets/brands-official/motorola-solutions.svg.asset.json";
+import axis from "@assets/brands-official/axis-communications.png.asset.json";
 import { SectionHeading } from "./Section";
 
 const brands = [
@@ -21,11 +21,11 @@ export function Experiencia() {
           title="Experiência construída ao longo da nossa trajetória"
           description="Ao longo de sua história, a FC participou de projetos e operações de grande relevância no mercado."
         />
-        <ul className="mt-12 grid gap-x-12 gap-y-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-12 flex flex-wrap justify-center gap-x-12 gap-y-8">
           {brands.map((brand) => (
             <li
               key={brand.name}
-              className="flex min-h-40 items-center justify-center px-6 py-8 text-center"
+              className="flex min-h-28 w-full sm:w-[calc(50%-1.5rem)] md:w-[calc(33.33%-2rem)] lg:w-[calc(25%-2.25rem)] items-center justify-center px-4 py-6 text-center"
             >
               {brand.src ? (
                 <img
@@ -34,21 +34,13 @@ export function Experiencia() {
                   className={`h-auto w-auto object-contain ${brand.size ?? ""}`}
                 />
               ) : (
-                <div className="max-w-56" aria-label={`${brand.name}: arquivo oficial pendente`}>
-                  <span className="block font-display text-base font-semibold text-foreground">
-                    {brand.name}
-                  </span>
-                  <span className="mt-2 block text-xs text-muted-foreground">
-                    Arquivo oficial pendente
-                  </span>
-                </div>
+                <span className="text-xl font-semibold tracking-tight text-foreground">
+                  {brand.name}
+                </span>
               )}
             </li>
           ))}
         </ul>
-        <p className="mt-6 border-t border-border pt-5 text-xs leading-relaxed text-muted-foreground">
-          Empresas atendidas ao longo da trajetória da FC. A apresentação das marcas não implica em vínculo exclusivo.
-        </p>
       </div>
     </section>
   );
