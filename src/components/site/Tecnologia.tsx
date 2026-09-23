@@ -7,7 +7,7 @@ export function Tecnologia() {
     <Section id="tecnologia" tone="surface">
       <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
         <div>
-          <img src="/integracargo-logo.png" alt="Integra Cargo" className="mb-6 h-10 w-auto object-contain rounded-sm" />
+          <img src="/integracargo-logo.png" alt="Integra Cargo" className="mb-6 h-16 md:h-20 w-auto object-contain rounded-sm" />
           <SectionHeading
             eyebrow="FC + Integra Cargo"
             title="Gestão 4PL potencializada por tecnologia"

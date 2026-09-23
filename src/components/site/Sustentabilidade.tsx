@@ -8,7 +8,7 @@ export function Sustentabilidade() {
     <Section id="sustentabilidade">
       <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div>
-          <img src="/integracarbon-logo.png" alt="Integra Carbon" className="mb-6 h-10 w-auto object-contain" />
+          <img src="/integracarbon-logo.png" alt="Integra Carbon" className="mb-6 h-16 md:h-20 w-auto object-contain" />
           <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
             Em conjunto com o ecossistema Integra Carbon, apoiamos indústrias e empresas B2B na organização e gestão de dados relacionados às emissões de gases de efeito estufa.
           </p>
