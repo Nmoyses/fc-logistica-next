@@ -35,7 +35,7 @@ export const timeline = [
   { ano: "2026", titulo: "FC Supply Tech Solutions", texto: "Nova identidade para integrar Gestão 4PL, Supply Chain, tecnologia e sustentabilidade." },
 ];
 
-export const fluxoCadeia = ["Cliente", "Planejamento", "Fornecedores", "Transporte", "Armazenagem", "Distribuição", "Indicadores"];
+export const fluxoCadeia = ["Pedido", "Planejamento", "Armazenagem", "Distribuição", "Indicadores"];
 
 export const solucoesIntegra = ["TMS", "Gestão de pedidos", "Cotação", "Auditoria de fretes", "Rastreabilidade", "Gestão de pátio", "Aplicativo para motoristas", "Frota", "APIs", "Dashboards", "Inteligência Artificial", "Chatbot comercial"];
 
@@ -47,6 +47,8 @@ export const segmentos = [
   { titulo: "Tecnologia e telecom", texto: "Equipamentos e componentes em operações inbound e outbound." },
   { titulo: "Saúde e farmacêutico", texto: "Cadeias com controle documental e níveis de serviço rigorosos." },
   { titulo: "Alimentos e cosméticos", texto: "Distribuição com variedade de itens, destinos e requisitos específicos." },
+  { titulo: "Energia Solar", texto: "Logística especializada para equipamentos, painéis e estruturas fotovoltaicas." },
+  { titulo: "Agronegócio", texto: "Gestão da cadeia de suprimentos voltada a insumos, máquinas e operação no campo." },
 ];
 
 export const diferenciais = [

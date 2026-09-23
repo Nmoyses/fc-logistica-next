@@ -18,8 +18,8 @@ export function Segmentos() {
     <Section id="segmentos" tone="surface">
       <SectionHeading
         eyebrow="Segmentos de atuação"
-        title="Experiência em cadeias que não admitem improviso"
-        description="Nossa expertise vem da expansão e do planejamento de diferentes mercados logísticos, com equipes dedicadas às exigências de cada tipo de carga."
+        title="Nossa expertise vem da expansão e do planejamento de diferentes mercados logísticos, com equipes dedicadas às exigências de cada tipo de carga."
+        description="A FC Supply Tech Solutions atua em diversos segmentos, oferecendo soluções logísticas especializadas para atender às necessidades específicas de cada setor."
       />
 
        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
