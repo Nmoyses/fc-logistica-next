@@ -1,6 +1,6 @@
 import { ArrowRight, Network } from "lucide-react";
 import { Section, SectionHeading } from "./Section";
-import { fluxoCadeia } from "@/data/site";
+import { fluxosCadeia } from "@/data/site";
 
 export function OndeFCAtua() {
   return (
@@ -9,7 +9,7 @@ export function OndeFCAtua() {
       <div className="mt-12">
         <div>
           <ol className="grid gap-3 md:grid-cols-7">
-            {fluxoCadeia.map((item, index) => <li key={item} className="relative flex min-h-24 items-center justify-center rounded-md border border-ink-border bg-ink-soft p-4 text-center"><div><span className="text-xs font-semibold text-accent">{String(index + 1).padStart(2, "0")}</span><span className="mt-2 block text-sm font-semibold text-ink-foreground">{item}</span></div>{index < fluxoCadeia.length - 1 && <ArrowRight className="absolute -bottom-4 z-10 h-5 w-5 rotate-90 rounded-full bg-accent p-1 text-accent-foreground md:-right-3 md:bottom-auto md:rotate-0" aria-hidden="true" />}</li>)}
+            {fluxosCadeia.map((item, index) => <li key={item} className="relative flex min-h-24 items-center justify-center rounded-md border border-ink-border bg-ink-soft p-4 text-center"><div><span className="text-xs font-semibold text-accent">{String(index + 1).padStart(2, "0")}</span><span className="mt-2 block text-sm font-semibold text-ink-foreground">{item}</span></div>{index < fluxosCadeia.length - 1 && <ArrowRight className="absolute -bottom-4 z-10 h-5 w-5 rotate-90 rounded-full bg-accent p-1 text-accent-foreground md:-right-3 md:bottom-auto md:rotate-0" aria-hidden="true" />}</li>)}
           </ol>
         </div>
         <div className="mt-6 flex items-center gap-4 rounded-md border border-ink-border bg-primary p-5 text-primary-foreground"><Network className="h-8 w-8 shrink-0 text-accent" aria-hidden="true" /><div><p className="font-display text-lg font-semibold">FC Supply Tech Solutions</p><p className="mt-1 text-xs font-semibold uppercase text-ink-muted">Gestão • Coordenação • Integração • Controle</p></div></div>
