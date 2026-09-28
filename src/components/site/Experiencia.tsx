@@ -1,7 +1,7 @@
 import { SectionHeading } from "./Section";
 
 const brands = [
-  { name: "Motorola Solutions", src: "/motorola-logo.png", size: "max-h-12 max-w-64" },
+  { name: "Motorola Solutions", src: "/motorola-logo.png" } ,
   { name: "Zebra Technologies", src: "/zebra-logo.png" },
   { name: "Axis Communications", src: "/axis-logo.png", size: "max-h-20 max-w-56" },
   { name: "Dana Cosméticos", src: "/danacosmeticos-logo.png" },
