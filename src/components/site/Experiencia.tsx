@@ -1,5 +1,4 @@
-import motorola from "@/assets/brands-official/motorola-solutions.svg.asset.json";
-import axis from "@/assets/brands-official/axis-communications.png.asset.json";
+
 import { SectionHeading } from "./Section";
 
 const brands = [
