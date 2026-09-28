@@ -1,16 +1,25 @@
-// src/components/site/BrandLogo.tsx
 import React from "react";
 import { cn } from "@/lib/utils";
 
-export function BrandLogo({ className, priority = false }: { className?: string; priority?: boolean }) {
+// Definimos props simples apenas para customização de estilo e acessibilidade
+interface BrandLogoProps {
+  className?: string;
+  altText?: string;
+}
+
+export function BrandLogo({ 
+  className, 
+  altText = "FC Supply Tech Solutions" 
+}: BrandLogoProps) {
+  // O caminho é fixo na pasta public/logo.png para evitar erros
   return (
     <img
-      src="/logo.png" // Path to the logo image
-      alt="FC Supply Tech Solutions - 4PL, Supply Chain e Technology"
-      width={236}
-      height={236}
-      loading={priority ? "eager" : "lazy"}
-      className={cn("object-contain", className)}
+      src="/logo.png" 
+      alt={altText}
+      width={300} // Definimos um tamanho base seguro
+      height={300}
+      loading="lazy"
+      className={cn("object-contain h-auto", className)}
     />
   );
 }
