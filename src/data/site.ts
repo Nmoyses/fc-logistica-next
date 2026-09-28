@@ -3,7 +3,7 @@ export const contato = {
   telefoneHref: "tel:+5515992536034",
   whatsapp: "https://wa.me/15992536034",
   email: "daniel.ramos@fclogistica.com",
-  endereco: "Rua Joaquim Olavo de Carvalho, 29 – Centro, Porto Feliz – SP",
+  endereco: "Rua Tristão Pires 184, centro, Porto Feliz - SP Brasil | CEP 18.540-037",
   atendimento: "Segunda a sexta, das 8h às 18h",
   apresentacao: "https://fclogistica.com/apresentacao.pdf",
 };
