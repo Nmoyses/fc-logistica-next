@@ -1,22 +1,137 @@
-import { useState } from "react";
-import { Clock, Mail, MapPin, Phone, Send } from "lucide-react";
-import { z } from "zod";
-import { toast } from "sonner";
-import { Section, SectionHeading } from "./Section";
+import React, { useState } from "react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { SectionHeading } from "./Section";
 import { contato } from "@/data/site";
 
-const desafios = ["Gestão 4PL", "Gestão de transportes", "Redução de custos", "Gestão de fornecedores", "Gestão de fretes", "KPIs e SLAs", "Tecnologia", "Supply Chain", "Sustentabilidade", "Outro"];
-const schema = z.object({ nome: z.string().trim().min(2, "Informe seu nome."), empresa: z.string().trim().min(2, "Informe a empresa."), email: z.string().trim().email("Informe um e-mail válido."), telefone: z.string().trim().min(8, "Informe um telefone com DDD."), desafio: z.string().min(1, "Selecione o principal desafio."), mensagem: z.string().trim().min(10, "Conte brevemente como podemos ajudar.") });
-type Campos = z.infer<typeof schema>; type Erros = Partial<Record<keyof Campos, string>>;
-const vazio: Campos = { nome: "", empresa: "", email: "", telefone: "", desafio: "", mensagem: "" };
-
 export function Contato() {
-  const [valores, setValores] = useState<Campos>(vazio); const [erros, setErros] = useState<Erros>({});
-  function update(campo: keyof Campos, valor: string) { setValores((old) => ({ ...old, [campo]: valor })); setErros((old) => ({ ...old, [campo]: undefined })); }
-  function handleSubmit(event: React.FormEvent) { event.preventDefault(); const result = schema.safeParse(valores); if (!result.success) { const novos: Erros = {}; for (const issue of result.error.issues) { const campo = issue.path[0] as keyof Campos; if (!novos[campo]) novos[campo] = issue.message; } setErros(novos); toast.error("Verifique os campos destacados."); return; } const data = result.data; const corpo = [`Nome: ${data.nome}`, `Empresa: ${data.empresa}`, `E-mail: ${data.email}`, `Telefone / WhatsApp: ${data.telefone}`, `Principal desafio: ${data.desafio}`, "", data.mensagem].join("\n"); window.location.href = `mailto:${contato.email}?subject=${encodeURIComponent(`Contato FC Supply Tech — ${data.empresa}`)}&body=${encodeURIComponent(corpo)}`; toast.info("A mensagem foi preparada no seu aplicativo de e-mail. Confirme o envio por lá."); }
-  const fields: { name: keyof Campos; label: string; type?: string; placeholder: string }[] = [{ name: "nome", label: "Nome", placeholder: "Seu nome completo" }, { name: "empresa", label: "Empresa", placeholder: "Nome da empresa" }, { name: "email", label: "E-mail corporativo", type: "email", placeholder: "voce@empresa.com.br" }, { name: "telefone", label: "Telefone / WhatsApp", type: "tel", placeholder: "(00) 00000-0000" }];
   return (
-    <Section id="contato" tone="surface"><div className="grid gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20"><div><SectionHeading eyebrow="Contato" title="Converse com um especialista em Gestão 4PL" description="Compartilhe o principal desafio da sua operação para iniciarmos uma conversa objetiva sobre gestão, tecnologia e performance." /><ul className="mt-10 space-y-6">{[[Phone, "Telefone", contato.telefone, contato.telefoneHref], [Mail, "E-mail", contato.email, `mailto:${contato.email}`], [MapPin, "Localização", contato.endereco, ""], [Clock, "Atendimento", contato.atendimento, ""]].map(([Icon, label, value, href]) => { const IconComponent = Icon as typeof Phone; return <li key={String(label)} className="flex gap-4"><IconComponent className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true" /><div><span className="block text-xs font-semibold uppercase text-muted-foreground">{String(label)}</span>{href ? <a href={String(href)} className="break-all text-sm font-medium hover:text-accent">{String(value)}</a> : <p className="text-sm font-medium">{String(value)}</p>}</div></li>; })}</ul></div>
-      <form onSubmit={handleSubmit} noValidate className="card-fc space-y-5 p-7 hover:translate-y-0 hover:shadow-[var(--shadow-card)] sm:p-9"><div className="grid gap-5 sm:grid-cols-2">{fields.map((field) => <div key={field.name}><label htmlFor={field.name} className="block text-xs font-semibold uppercase text-muted-foreground">{field.label}</label><input id={field.name} type={field.type ?? "text"} value={valores[field.name]} placeholder={field.placeholder} onChange={(event) => update(field.name, event.target.value)} aria-invalid={Boolean(erros[field.name])} className="mt-2 w-full rounded-md border border-input bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-accent focus:ring-2 focus:ring-accent/25" />{erros[field.name] && <p className="mt-1 text-xs text-destructive">{erros[field.name]}</p>}</div>)}</div><div><label htmlFor="desafio" className="block text-xs font-semibold uppercase text-muted-foreground">Principal desafio</label><select id="desafio" value={valores.desafio} onChange={(event) => update("desafio", event.target.value)} aria-invalid={Boolean(erros.desafio)} className="mt-2 w-full rounded-md border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/25"><option value="">Selecione uma opção</option>{desafios.map((item) => <option key={item} value={item}>{item}</option>)}</select>{erros.desafio && <p className="mt-1 text-xs text-destructive">{erros.desafio}</p>}</div><div><label htmlFor="mensagem" className="block text-xs font-semibold uppercase text-muted-foreground">Mensagem</label><textarea id="mensagem" rows={5} value={valores.mensagem} placeholder="Descreva brevemente sua operação e o desafio atual." onChange={(event) => update("mensagem", event.target.value)} aria-invalid={Boolean(erros.mensagem)} className="mt-2 w-full resize-y rounded-md border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/25" />{erros.mensagem && <p className="mt-1 text-xs text-destructive">{erros.mensagem}</p>}</div><button type="submit" className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-6 py-4 text-sm font-semibold uppercase text-accent-foreground transition-all hover:brightness-110"><Send className="h-4 w-4" />Preparar mensagem</button><p className="text-xs leading-relaxed text-muted-foreground">O formulário abre seu aplicativo de e-mail para que você confirme o envio. Nenhuma mensagem é enviada automaticamente.</p></form></div></Section>
+    <section id="contato" className="py-20 lg:py-24 bg-card">
+      <div className="container-fc">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div>
+            <SectionHeading
+              eyebrow="Contato"
+              title="Converse com um especialista em Gestão 4PL"
+              description="Compartilhe o principal desafio da sua operação para iniciarmos uma conversa objetiva sobre gestão, tecnologia e performance."
+            />
+
+            <ul className="mt-10 space-y-6">
+              <li className="flex items-start gap-4">
+                <div className="p-2 rounded-lg bg-orange-500/10 text-orange-500 mt-1">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block">
+                    TELEFONE
+                  </span>
+                  <a
+                    href={contato.telefoneHref}
+                    className="text-sm font-medium text-foreground hover:text-orange-500 transition-colors"
+                  >
+                    {contato.telefone}
+                  </a>
+                </div>
+              </li>
+
+              <li className="flex items-start gap-4">
+                <div className="p-2 rounded-lg bg-orange-500/10 text-orange-500 mt-1">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block">
+                    E-MAIL
+                  </span>
+                  <a
+                    href={`mailto:${contato.email}`}
+                    className="text-sm font-medium text-foreground hover:text-orange-500 transition-colors"
+                  >
+                    {contato.email}
+                  </a>
+                </div>
+              </li>
+
+              <li className="flex items-start gap-4">
+                <div className="p-2 rounded-lg bg-orange-500/10 text-orange-500 mt-1 shrink-0">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block">
+                    LOCALIZAÇÃO
+                  </span>
+                  <p className="text-sm font-medium text-foreground whitespace-nowrap overflow-x-auto">
+                    {contato.endereco}
+                  </p>
+                </div>
+              </li>
+
+              <li className="flex items-start gap-4">
+                <div className="p-2 rounded-lg bg-orange-500/10 text-orange-500 mt-1">
+                  <Clock className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block">
+                    ATENDIMENTO
+                  </span>
+                  <p className="text-sm font-medium text-foreground">
+                    {contato.atendimento}
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div className="bg-background p-8 rounded-2xl border border-border shadow-sm">
+            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+              <div>
+                <label className="block text-xs font-semibold uppercase text-muted-foreground mb-1">
+                  Nome
+                </label>
+                <input
+                  type="text"
+                  placeholder="Seu nome completo"
+                  className="w-full px-4 py-2.5 rounded-lg border border-border bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-semibold uppercase text-muted-foreground mb-1">
+                  E-mail
+                </label>
+                <input
+                  type="email"
+                  placeholder="voce@empresa.com.br"
+                  className="w-full px-4 py-2.5 rounded-lg border border-border bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-semibold uppercase text-muted-foreground mb-1">
+                  Telefone / WhatsApp
+                </label>
+                <input
+                  type="tel"
+                  placeholder="(00) 00000-0000"
+                  className="w-full px-4 py-2.5 rounded-lg border border-border bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-semibold uppercase text-muted-foreground mb-1">
+                  Mensagem
+                </label>
+                <textarea
+                  rows={4}
+                  placeholder="Conte brevemente como podemos ajudar."
+                  className="w-full px-4 py-2.5 rounded-lg border border-border bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                className="w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg transition-colors text-sm"
+              >
+                Enviar mensagem
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
