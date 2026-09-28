@@ -4,7 +4,7 @@ const marcasEcossistema = [
     tag: "Tecnologia & Gestão 4PL",
     description:
       "Plataforma completa de soluções tecnológicas integradas para otimização e controlo ponta a ponta da cadeia de abastecimento.",
-    logo: "/favicon.png",
+    logo: "/logo.png",
     bgColor: "bg-[#0A192F] text-white",
     tagColor: "bg-blue-900/50 text-blue-200 border border-blue-700",
     textColor: "text-slate-300",
@@ -55,8 +55,8 @@ export function ArquiteturaMarcas() {
           {marcasEcossistema.map((marca) => (
             <article key={marca.title} className={`flex flex-col justify-between rounded-lg p-6 shadow-lg transition-transform hover:-translate-y-1 ${marca.bgColor}`}>
               <div>
-                <div className="mb-6 flex h-14 items-center">
-                  <img src={marca.logo} alt={marca.title} className="h-10 max-w-full object-contain" />
+                <div className="mb-6 flex h-20 items-center">
+                  <img src={marca.logo} alt={marca.title} className="h-16 md:h-20 w-auto object-contain" />
                 </div>
                 <span className={`mb-4 inline-block rounded-md px-3 py-1 text-xs font-semibold ${marca.tagColor}`}>
                   {marca.tag}
