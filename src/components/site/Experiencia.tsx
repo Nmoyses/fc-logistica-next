@@ -1,4 +1,3 @@
-
 import { SectionHeading } from "./Section";
 
 const brands = [
@@ -32,11 +31,7 @@ export function Experiencia() {
                   alt={brand.name}
                   className={`h-auto w-auto object-contain ${brand.size ?? ""}`}
                 />
-              ) : (
-                <span className="text-xl font-semibold tracking-tight text-foreground">
-                  {brand.name}
-                </span>
-              )}
+              ) : null}
             </li>
           ))}
         </ul>
