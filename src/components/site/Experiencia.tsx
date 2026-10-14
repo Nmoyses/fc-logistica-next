@@ -1,7 +1,7 @@
 import { SectionHeading } from "./Section";
 
 const brands = [
-  { name: "Motorola Solutions", src: "/motorola-logo.png" } ,
+  { name: "Motorola Solutions", src: "/motorola-logo.png" },
   { name: "Zebra Technologies", src: "/zebra-logo.png" },
   { name: "Axis Communications", src: "/axis-logo.png", size: "max-h-20 max-w-56" },
   { name: "Dana Cosméticos", src: "/danacosmeticos-logo.png" },
@@ -16,7 +16,7 @@ export function Experiencia() {
         <SectionHeading
           eyebrow="Nossa experiência"
           title="Experiência construída ao longo da nossa trajetória"
-          description="Ao longo de sua trajetória, a FC construiu uma sólida experiência na gestão de projetos estratégicos e operações logísticas de alta complexidade, atendendo grandes empresas e construindo relações de longo prazo, muitas delas ativas, sempre incorporando inovação e tecnologia para tornar as operações mais eficientes, inteligentes e sustentáveis, incluindo soluções para mensuração das emissões de carbono na cadeia logística."
+          description="Ao longo de sua trajetória, a FC construiu uma sólida experiência na gestão de projetos estratégicos e operações logísticas de alta complexidade, atendendo grandes empresas e construindo relações de longo prazo, muitas delas ativas, sempre incorporando inovação e tecnologia para tornar as operações mais eficientes, inteligentes e sustentáveis, incluindo soluções para mensuração das emissões de carbono na cadeia logística"
         />
         <ul className="mt-12 flex flex-wrap justify-center gap-x-12 gap-y-8">
           {brands.map((brand) => (
