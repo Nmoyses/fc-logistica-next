@@ -7,7 +7,6 @@ const brands = [
   { name: "Dana Cosméticos", src: "/danacosmeticos-logo.png" },
   { name: "Nokia", src: "/nokia-logo.png" },
   { name: "RB Alimentos", src: "/rbalimentos-logo.png" },
-  { name: "Cambium", src: "/cambium-logo.png" },
 ];
 
 export function Experiencia() {
